@@ -343,11 +343,10 @@ Integrates and starts the entire pipeline with one click.
 
 Potential upgrades:
 
-- Multi-speaker recognition
-- Conversation memory modeling
-- GPT-enhanced semantic understanding
-- Multi-platform livestream compatibility
-- Adaptive response strategies
+- Apply knowledge distillation techniques to transfer knowledge from large language models to smaller models, enabling more natural and realistic conversational responses while reducing computational cost.
+- Reduce the frequency of model invocation as much as possible to improve system efficiency and response speed.
+- Explore alternative audio capture methods, such as directly connecting to livestream data streams, integrating third-party streaming tools, or developing dedicated streaming-processing modules, to support multiple bots monitoring multiple livestream channels simultaneously.
+- Further refine the API design to ensure it can be triggered reliably for every new input event, and improve the overall system interface and visual presentation for better usability and user experience.
 
 ---
 
