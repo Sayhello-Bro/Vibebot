@@ -1,9 +1,6 @@
 # FB Live Auto Comment System
 Real-time Speech Recognition and Automatic Facebook Live Interaction Assistant
 
-![Python](https://img.shields.io/badge/Python-3.12+-blue)
-![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-green)
-
 ## Overview
 
 This project implements a real-time automatic interaction assistant for Facebook Live streaming.
@@ -228,6 +225,18 @@ Response format:
 "reply": "..."
 }
 
+
+---
+
+### Controls
+
+| Button | Function |
+|--------|----------|
+| **帳號 A (Default)** | Select the Default Chrome profile for livestream monitoring |
+| **帳號 B (Profile 1)** | Select Chrome Profile 1 for multi-account operation |
+| **帳號 C (Profile 2)** | Select Chrome Profile 2 for multi-account operation |
+| **直播網址 Input Box** | Specify the target Facebook Live stream URL to monitor |
+| **開始執行** | Start the system workflow: open livestream page, activate speech recognition module, start LLM reply generation service, and enable automatic commenting |
 
 ---
 
