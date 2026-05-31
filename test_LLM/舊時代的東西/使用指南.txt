@@ -1,0 +1,42 @@
+🛠 一、 前置作業 (Setup Instructions)
+1. 軟體環境安裝
+Python 3.10+: 核心執行環境。
+
+MongoDB: 必須啟動（預設埠：27017），用於儲存商品事實與頻率。
+
+Ollama: 必須在背景執行，且已下載 qwen2.5:3b 與 qwen3:8b 模型。
+
+2. 資料準備
+在程式碼 (.py) 同級目錄下，建立一個名為 live_data.jsonl 的檔案。
+
+讀取機制：系統會自動尋找此檔案並解析每一行的 resolved_text 欄位。
+
+格式範例：
+
+程式碼片段
+{"time": "2026-03-11", "resolved_text": "這顆螢石特價 500 元。"}
+🚀 二、 使用方法
+啟動服務：執行 Python 主程式後，看到 🚀 記憶庫已就緒 即表示連線成功。
+
+路徑自適應：系統採用相對路徑偵測，無論專案資料夾放在何處，只要檔案在旁邊即可讀取。
+
+🔌 三、 API 對接方式 (API Reference)
+此 API 的設計邏輯為「觸發式更新」。每呼叫一次，系統就會完整讀取並檢查一次 live_data.jsonl。
+
+URL: http://127.0.0.1:5000/process
+
+Method: POST
+
+功能說明：呼叫此端點後，系統會執行以下動作：
+
+掃描 live_data.jsonl 內的所有新增對話。
+
+將對話重寫並提取出商品事實（如：名稱、價格、規格）。
+
+同步記憶：將新事實更新至 MongoDB。若商品已存在，則附加新資訊並將 frequency (頻率) 加 1。
+
+請求範例 (cURL)：
+
+PowerShell
+Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:5000/process" -ContentType "application/json" -Body '{}'
+(註：目前設計無需發送特定 JSON 欄位，僅需 POST 請求即可觸發檔案讀取與記憶同步。)

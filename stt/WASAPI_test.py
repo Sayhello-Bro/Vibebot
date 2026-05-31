@@ -1,37 +1,68 @@
-import sounddevice as sd
-import numpy as np
+import threading
 import queue
-import sys
 import json
 import datetime
 import time
+import re
+import os
+import sys
+import io
+import argparse
+import traceback
+
 from pathlib import Path
 from collections import Counter
 from google.cloud import speech
-import re
+
+from Facebook_stream_input import start_streaming
+
+if sys.platform == "win32":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+
+
+def get_app_dirs():
+    if getattr(sys, "frozen", False):
+        return Path(sys._MEIPASS), Path(sys.executable).resolve().parent
+    return Path(__file__).resolve().parent, Path(__file__).resolve().parent
+
+
+RESOURCE_DIR, OUTPUT_DIR = get_app_dirs()
+
+
+def write_crash_log(error):
+    log_path = OUTPUT_DIR / "stt_error.log"
+    with open(log_path, "a", encoding="utf-8") as f:
+        f.write("\n" + "=" * 80 + "\n")
+        f.write(datetime.datetime.now().isoformat() + "\n")
+        f.write(str(error) + "\n")
+        f.write(traceback.format_exc() + "\n")
+    print(f"STT failed. Error log: {log_path}", flush=True)
 
 # =======================
-# 商品模式 & Speech Context
+# 商品模式
 # =======================
 PRODUCT_MODE = "clothing"
-CONTEXT_DIR = Path("speech_contexts") / PRODUCT_MODE
+CONTEXT_DIR = RESOURCE_DIR / "speech_contexts" / PRODUCT_MODE
 
-def load_speech_context(path: Path) -> speech.SpeechContext:
+# =======================
+# 載入 Speech Context
+# =======================
+def load_speech_context(path: Path):
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
+
     return speech.SpeechContext(
         phrases=data["phrases"],
         boost=data.get("boost", 10.0)
     )
 
 CONTEXTS = {}
+
 for file in CONTEXT_DIR.glob("*.json"):
     CONTEXTS[file.stem] = load_speech_context(file)
 
 SPEECH_CONTEXT_LIST = list(CONTEXTS.values())
-
-print(f"✅ 商品模式：{PRODUCT_MODE}")
-print(f"🔹 載入 context：{list(CONTEXTS.keys())}")
 
 # =======================
 # Intent Rules
@@ -44,119 +75,31 @@ INTENT_RULES = {
     "PRODUCT_STYLE_DESC": CONTEXTS.get("style_context", speech.SpeechContext()).phrases,
 }
 
-def detect_intents(text: str):
-    matched = []
-    for intent, keywords in INTENT_RULES.items():
-        if any(k in text for k in keywords):
-            matched.append(intent)
-    return matched[0] if matched else "CHAT", matched[1:]
+# =======================
+# 多直播設定
+# =======================
+DEFAULT_LIVE_URL = os.environ.get(
+    "STT_STREAM_URL",
+    "https://www.facebook.com/shinekoreafashion/videos/2514776075612845?locale=zh_TW"
+)
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--url", default=DEFAULT_LIVE_URL)
+parser.add_argument("--output", default=os.environ.get("STT_OUTPUT_JSONL", str(OUTPUT_DIR / "Text.jsonl")))
+parser.add_argument("--stream-id", default="live_1")
+parser.add_argument("--chrome-profile", default=os.environ.get("STT_CHROME_PROFILE", "Default"))
+ARGS, _ = parser.parse_known_args()
 
 # =======================
-# 同音字
+# Google STT Config
 # =======================
-HOMOPHONE_MAP = {
-    "0": ["零", "靈","鄰"],
-    "一": ["醫", "依"],
-    "二": ["耳", "而", "兒"],
-    "三": ["山", "散", "參"],
-    "四": ["死", "絲", "思"],
-    "五": ["舞", "伍", "屋"],
-    "塊": ["快", "筷", "寬","會"],
-    "件": ["建", "見", "簡","間"],
-    "元": ["院", "願", "遠"],
-    "號": ["豪", "浩"],
-    "XL": ["叉L", "X L", "ex L"]
-}
-
-def resolve_homophones(text: str):
-    replaced = []
-    for correct, possibles in HOMOPHONE_MAP.items():
-        for p in possibles:
-            if p in text:
-                text = text.replace(p, correct)
-                replaced.append((p, correct))
-    return text, replaced
-
-def detect_misrecognition(text: str):
-    flagged = re.findall(r"\d+|[a-zA-Z]{2,}", text)
-    for correct, possibles in HOMOPHONE_MAP.items():
-        for p in possibles:
-            if p in text:
-                flagged.append(p)
-    return list(set(flagged))
-
-# =======================
-# Entity 抽取（完全照你原本）
-# =======================
-def extract_entities(text: str, contexts: dict):
-    entities = {
-        "trade_action": [],
-        "color": [],
-        "material": [],
-        "size": [],
-        "style": []
-    }
-
-    if "base_context" in contexts:
-        entities["trade_action"] = [p for p in contexts["base_context"].phrases if p in text]
-    if "color_context" in contexts:
-        entities["color"] = [p for p in contexts["color_context"].phrases if p in text]
-    if "fabric_context" in contexts:
-        entities["material"] = [p for p in contexts["fabric_context"].phrases if p in text]
-    if "size_context" in contexts:
-        entities["size"] = [p for p in contexts["size_context"].phrases if p in text]
-    if "style_context" in contexts:
-        entities["style"] = [p for p in contexts["style_context"].phrases if p in text]
-
-    return entities
-
-# =======================
-# 設定
-# =======================
-INPUT_FS = 44100
 TARGET_FS = 16000
-CHANNELS = 1
-CHUNK_DURATION = 0.35
-CHUNK_SIZE = int(INPUT_FS * CHUNK_DURATION)
+STREAMING_LIMIT = 280
 
-VOLUME_THRESHOLD = 0.012
-SILENCE_GAP_SEC = 1.2
-MIN_SENTENCE_LEN = 3
+SERVICE_JSON = RESOURCE_DIR / "service_account.json"
+if SERVICE_JSON.exists():
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(SERVICE_JSON)
 
-STREAMING_LIMIT = 280  # 🔧 FIX：避免 305 秒炸
-
-LOG_FILE = "stt_annotated_output.jsonl"
-MISREC_LOG_FILE = "misrecognition_stats.txt"
-
-# =======================
-# Stereo Mix
-# =======================
-def find_stereo_mix():
-    for i, d in enumerate(sd.query_devices()):
-        name = d["name"].lower()
-        if ("stereo mix" in name or "立體聲混音" in name) and d["max_input_channels"] > 0:
-            return i, d["name"]
-    return None, None
-
-device_index, device_name = find_stereo_mix()
-if device_index is None:
-    print("❌ 找不到 Stereo Mix")
-    sys.exit(1)
-print(f"✅ 使用裝置：{device_name}")
-
-# =======================
-# Resample
-# =======================
-def resample_numpy(signal, src, dst):
-    duration = len(signal) / src
-    src_t = np.linspace(0, duration, len(signal), endpoint=False)
-    dst_len = int(len(signal) * dst / src)
-    dst_t = np.linspace(0, duration, dst_len, endpoint=False)
-    return np.interp(dst_t, src_t, signal)
-
-# =======================
-# Google STT
-# =======================
 client = speech.SpeechClient()
 
 config = speech.RecognitionConfig(
@@ -172,111 +115,334 @@ streaming_config = speech.StreamingRecognitionConfig(
     interim_results=True,
 )
 
-audio_queue = queue.Queue()
+# =======================
+# Intent Detection
+# =======================
+def detect_intents(text: str):
 
-def audio_callback(indata, frames, time_info, status):
-    mono = indata.mean(axis=1)
-    mono_16k = resample_numpy(mono, INPUT_FS, TARGET_FS)
+    scores = {}
 
-    mono_16k = mono_16k / 32768.0  # 🔧 FIX：你原本正確的正規化
-    mono_16k = np.clip(mono_16k, -1.0, 1.0)
+    for intent, keywords in INTENT_RULES.items():
+        scores[intent] = sum(1 for k in keywords if k in text)
 
-    rms = np.sqrt(np.mean(mono_16k ** 2))
-    if rms < VOLUME_THRESHOLD:
-        return
+    scores = {k: v for k, v in scores.items() if v > 0}
 
-    pcm16 = (mono_16k * 32767).astype(np.int16).tobytes()
-    audio_queue.put(pcm16)
+    if not scores:
+        return "CHAT", []
 
-def request_generator(start_time):
+    primary = max(scores, key=scores.get)
+    secondary = [k for k in scores if k != primary]
+
+    return primary, secondary
+
+# =======================
+# Entity 抽取
+# =======================
+def extract_entities(text: str, contexts: dict):
+
+    entities = {
+        "trade_action": [],
+        "color": [],
+        "material": [],
+        "size": [],
+        "style": []
+    }
+
+    if "base_context" in contexts:
+        entities["trade_action"] = [
+            p for p in contexts["base_context"].phrases if p in text
+        ]
+
+    if "color_context" in contexts:
+        entities["color"] = [
+            p for p in contexts["color_context"].phrases if p in text
+        ]
+
+    if "fabric_context" in contexts:
+        entities["material"] = [
+            p for p in contexts["fabric_context"].phrases if p in text
+        ]
+
+    if "size_context" in contexts:
+        entities["size"] = [
+            p for p in contexts["size_context"].phrases if p in text
+        ]
+
+    if "style_context" in contexts:
+        entities["style"] = [
+            p for p in contexts["style_context"].phrases if p in text
+        ]
+
+    return entities
+
+# =======================
+# Request Generator
+# =======================
+def request_generator(audio_queue, start_time):
+
     while True:
+
         if time.time() - start_time > STREAMING_LIMIT:
-            print("⏱ 重啟 Streaming")
+            print("⏱ Streaming restart")
             return
-        data = audio_queue.get()
-        if data is None:
-            return
-        yield speech.StreamingRecognizeRequest(audio_content=data)
-
-# =======================
-# 主程式
-# =======================
-print("🎧 開始錄音（Ctrl+C 結束）")
-
-log_fp = open(LOG_FILE, "a", encoding="utf-8")
-misrec_counter = Counter()
-
-current_sentence = ""
-sentence_confidences = []
-last_final_time = time.time()
-
-with sd.InputStream(
-    samplerate=INPUT_FS,
-    channels=CHANNELS,
-    dtype="int16",
-    device=device_index,
-    blocksize=CHUNK_SIZE,
-    callback=audio_callback,
-):
-    while True:
-        start_time = time.time()
-        requests = request_generator(start_time)
-        responses = client.streaming_recognize(streaming_config, requests)
 
         try:
+            data = audio_queue.get(timeout=2)
+
+            if data is None:
+                continue
+            
+            yield speech.StreamingRecognizeRequest(
+                audio_content=data
+            )
+
+        except queue.Empty:
+            continue
+# =======================
+# Text Cleanup
+# =======================
+def clean_text(text: str):
+
+    text = re.sub(r"\s+", " ", text)
+    text = re.sub(r'(.{1,10}？)\1{2,}', r'\1', text)
+    text = re.sub(r'(.)\1{3,}', r'\1', text)
+    return text.strip()
+# =======================
+# Similar Sentence Check
+# =======================
+def is_similar(text1: str, text2: str):
+    if not text1 or not text2:
+        return False
+    
+    if text1 == text2:
+        return True
+    
+    if text1 in text2 or text2 in text1:
+        return True 
+    
+    return False
+
+
+def normalize_for_compare(text: str) -> str:
+    return re.sub(r"\s+", "", text.strip())
+
+
+def save_payload(log_fp, stream_id, text, confidence_scores):
+    current_sentence = clean_text(text)
+    if len(normalize_for_compare(current_sentence)) < 6:
+        return False
+
+    intent, secondary = detect_intents(current_sentence)
+    entities = extract_entities(current_sentence, CONTEXTS)
+    avg_confidence = 0.0
+
+    if confidence_scores:
+        avg_confidence = sum(confidence_scores) / len(confidence_scores)
+
+    payload = {
+        "time": datetime.datetime.now().isoformat(),
+        "stream_id": stream_id,
+        "raw_text": current_sentence,
+        "intent": intent,
+        "secondary_intents": secondary,
+        "confidence": round(avg_confidence, 3),
+        "entities": entities
+    }
+
+    log_fp.write(json.dumps(payload, ensure_ascii=False) + "\n")
+    log_fp.flush()
+    print(f"\n[{stream_id}] saved: {current_sentence}", flush=True)
+    return True
+# =======================
+# STT Pipeline
+# =======================
+def run_stt_pipeline(stream_id, url, output_file):
+    
+    MAX_SENTENCE_SEC = 10
+    SILENCE_GAP_SEC = 2.2
+    INTERIM_STABLE_SEC = 2.5
+
+    print(f"🚀 Starting {stream_id}")
+
+    audio_queue = start_streaming(stream_id, url, ARGS.chrome_profile)
+
+    log_fp = open(output_file, "a", encoding="utf-8")
+
+    sentence_buffer = []
+    last_final_text = ""
+    confidence_scores = []   
+    last_final_time = time.time()
+
+    sentence_start_time = None
+    last_interim_text = ""
+    last_interim_change_time = time.time()
+    last_saved_text = ""
+    
+    while True:
+
+        start_time = time.time()
+
+        requests = request_generator(audio_queue, start_time)
+
+        responses = client.streaming_recognize(
+            streaming_config,
+            requests
+        )
+
+        try:
+
             for response in responses:
+
                 for result in response.results:
+
                     alt = result.alternatives[0]
+
                     text = alt.transcript.strip()
+                    text = clean_text(text)
+                    
+                    confidence = getattr(alt, "confidence", 0.0)
+
                     now = time.time()
 
                     if not text:
                         continue
 
+                    # FINAL RESULT
                     if result.is_final:
-                        current_sentence += text
-                        last_final_time = now
-                        if hasattr(alt, "confidence"):
-                            sentence_confidences.append(alt.confidence)
-                        print(f"\n📝 {text}")
+
+                        if is_similar(text, last_final_text):
+                            continue
+                        
+                        last_final_text = text
+                        
+                        duplicate = False
+                        
+                        for old in sentence_buffer:
+                            if is_similar(text, old):
+                                duplicate = True
+                                break
+                        
+                        if not duplicate:
+                            
+                            if not sentence_buffer:
+                                sentence_start_time = now
+                                
+                            sentence_buffer.append(text)
+                            confidence_scores.append(confidence)
+                            last_final_time = now
+                            last_interim_text = ""
+                            last_interim_change_time = now
+
+                            print(f"\n[{stream_id}] 📝 {text}")
+
+                    # INTERIM
                     else:
-                        print(f"⏳ {text}", end="\r")
+                        print(f"[{stream_id}] ⏳ {text}", end="\r")
 
+                        if text != last_interim_text:
+                            last_interim_text = text
+                            last_interim_change_time = now
+
+                        if (
+                            last_interim_text
+                            and not sentence_buffer
+                            and (now - last_interim_change_time) >= INTERIM_STABLE_SEC
+                            and normalize_for_compare(last_interim_text) != normalize_for_compare(last_saved_text)
+                        ):
+                            interim_scores = [confidence] if confidence else []
+                            if save_payload(log_fp, stream_id, last_interim_text, interim_scores):
+                                last_saved_text = last_interim_text
+                                last_interim_change_time = now
+
+                    # FLUSH
                     if (
-                        current_sentence
-                        and now - last_final_time > SILENCE_GAP_SEC
-                        and len(current_sentence) >= MIN_SENTENCE_LEN
+                        sentence_buffer 
+                        and sentence_start_time is not None
+                        and (now - sentence_start_time >= MAX_SENTENCE_SEC or now - last_final_time > SILENCE_GAP_SEC)
                     ):
-                        resolved, replaced = resolve_homophones(current_sentence)
-                        flagged = detect_misrecognition(current_sentence)
-                        for f in flagged:
-                            misrec_counter[f] += 1
 
-                        intent, secondary = detect_intents(resolved)
-                        entities = extract_entities(resolved, CONTEXTS)
+                        current_sentence = " ".join(sentence_buffer)
+                        current_sentence = clean_text(current_sentence)
+                        
+                        if len(normalize_for_compare(current_sentence)) < 6:
+                            
+                            sentence_buffer.clear()
+                            confidence_scores.clear()
+                            sentence_start_time = None
+                            continue
+                        
+                        intent, secondary = detect_intents(current_sentence)
 
-                        log_fp.write(json.dumps({
+                        entities = extract_entities(
+                            current_sentence,
+                            CONTEXTS
+                        )
+
+                        avg_confidence = 0.0
+                        
+                        if confidence_scores:
+                            avg_confidence = sum(confidence_scores) / len(confidence_scores)
+                        
+                        
+                        payload = {
                             "time": datetime.datetime.now().isoformat(),
+                            "stream_id": stream_id,
                             "raw_text": current_sentence,
-                            "resolved_text": resolved,
                             "intent": intent,
                             "secondary_intents": secondary,
-                            "entities": entities,
-                            "misrecognitions": flagged,
-                            "homophone_resolution": replaced
-                        }, ensure_ascii=False) + "\n")
+                            "confidence": round(avg_confidence, 3),
+                            "entities": entities
+                        }
+
+                        log_fp.write(
+                            json.dumps(
+                                payload,
+                                ensure_ascii=False
+                            ) + "\n"
+                        )
+
                         log_fp.flush()
 
-                        print(f"\n💾 存檔：{resolved}")
-                        current_sentence = ""
-                        sentence_confidences.clear()
+                        print(
+                            f"\n[{stream_id}] 💾 saved: {current_sentence}"
+                        )
 
-        except KeyboardInterrupt:
-            audio_queue.put(None)
-            break
+                        print(current_sentence)
+                        last_saved_text = current_sentence
+                        
+                        sentence_buffer.clear()
+                        confidence_scores.clear()
+                        last_final_text = ""
+                        sentence_start_time = None
+                        last_final_time = now
+
         except Exception as e:
-            print("⚠️ Streaming 重啟：", e)
-            continue
 
-log_fp.close()
-print("✅ 程式正常結束")
+            print(f"⚠️ [{stream_id}] restart: {e}")
+
+            time.sleep(2)
+
+# =======================
+# 啟動所有直播
+# =======================
+threads = []
+
+Path(ARGS.output).resolve().parent.mkdir(parents=True, exist_ok=True)
+
+for stream_id, url in {ARGS.stream_id: ARGS.url}.items():
+
+    t = threading.Thread(
+        target=run_stt_pipeline,
+        args=(stream_id, url, str(Path(ARGS.output).resolve())),
+        daemon=True
+    )
+
+    t.start()
+
+    threads.append(t)
+
+# =======================
+# 主執行緒保持運行
+# =======================
+while True:
+    time.sleep(1)
