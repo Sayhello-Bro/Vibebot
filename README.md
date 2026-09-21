@@ -1,397 +1,66 @@
-# Vibebot
+# FB 直播自動留言系統
 
-**Facebook Live 即時語音辨識與自動留言互動助手**
+Windows 桌面程式，整合 Chrome 擴充功能、直播語音轉文字（STT）、本機 LLM 與語句資料庫，讓多個 Facebook 帳號處理一場或多場直播。使用者操作請見 [使用說明書](FB直播自動留言系統_使用說明書.md)。
 
-Vibebot 是一套針對 Facebook Live 場景設計的即時互動系統。系統會擷取直播音訊，透過 Google Cloud Speech-to-Text 轉成文字，再交由本機 LLM / RAG 服務產生回覆，最後由 Chrome Extension 將回覆送到 Facebook Live 留言區。
+## 快速開始
 
-目前專案名稱以 **Vibebot** 為主，系統主要在 Windows 環境開發，並以 Python、Flask、Google Cloud Speech-to-Text、Ollama / Qwen、Supabase RAG 與 Chrome Extension 組成完整流程。
+1. 保留 `final_project` 的資料夾結構，執行 `fb-live-comment-extension/dist/FB_Live_Environment_Setup.exe`，安裝或檢查 Chrome、MongoDB、Ollama 與 `nomic-embed-text`。
+2. 在 PowerShell 執行 `ollama pull qwen3:8b`。環境安裝程式目前只下載 `nomic-embed-text`；自動模式另需 `qwen3:8b`。
+3. 在每個機器人帳號使用的 Chrome 設定檔，從 `chrome://extensions` 的「載入未封裝項目」安裝 `fb-live-comment-extension/chrome_extension`，並確認 **FB Live Auto Clicker** 已啟用。
+4. 確認 MongoDB、Ollama 正在執行，開啟 `fb-live-comment-extension/dist/FB_Live_Auto_Comment.exe`。
+5. 新增並登入 Facebook 帳號，勾選要使用的帳號，輸入直播網址，選擇回覆模式並按「套用」，最後按各直播列的「開始」。
 
-## Overview
+## 目前功能
 
-Facebook Live 賣場、直播主互動或即時客服場景中，留言回覆需要快速理解直播語音內容並產生適當回應。Vibebot 嘗試將「直播音訊擷取」、「語音辨識」、「語意處理」、「LLM 回覆生成」與「自動留言」串成一條自動化流程。
+- 最多 8 個機器人字卡，分別對應 Chrome 設定檔；字卡顯示名稱可編輯，登入資料留在設定檔內。
+- 最多 5 列直播網址，各列獨立開始、暫停、繼續與停止；停止後網址恢復可編輯。
+- 一個帳號可同時處理多列直播，多個帳號也可參與同一列。每列共用 STT 輸入，每個「帳號 × 直播列」使用獨立 LLM 服務與可見終端機；停止該列會關閉其對應 LLM。
+- 語句分成「預設／自訂／衝人氣」三類，衝人氣語句保存在獨立資料庫。回覆模式只有「手動／自動」，切換後需按「套用」。手動模式把三類已啟用語句做向量比對，回覆一定逐字取自資料庫；最近 5 次已送出的普通留言不會重複，衝人氣語句不受此限制。自動模式把三類語句提供給 Qwen 參考，也允許生成資料庫以外的新留言。
+- 自動模式的 prompt 要求以自然、友善、喜歡主播的觀眾口吻互動，禁止諷刺、嗆聲、貶低、質疑或命令主播；三次未產生回覆時可使用一次安全的固定備援語句。
+- 輸入直播網址後嘗試辨識並儲存最近 3 位直播主的個人主頁；「前往」以選取帳號的 Chrome 設定檔開啟主頁。
 
-系統流程如下：
+## 專案結構
 
 ```text
-Facebook Live 音訊
--> 串流音訊擷取
--> Google Streaming Speech-to-Text
--> JSONL 結構化文字
--> LLM / RAG 回覆服務
--> Flask API
--> Chrome Extension
--> Facebook Live 自動留言
+final_project/
+├─ fb-live-comment-extension/
+│  ├─ launcher.py              # Windows 主介面與流程管理
+│  ├─ environment_installer.py # 環境檢查／安裝程式
+│  ├─ chrome_extension/        # Chrome 擴充功能；載入此資料夾
+│  ├─ dist/                    # 打包執行檔、工作資料與執行紀錄
+│  │  ├─ FB_Live_Auto_Comment.exe
+│  │  ├─ FB_Live_Environment_Setup.exe
+│  │  ├─ llm_server.exe
+│  │  ├─ stt_worker.exe
+│  │  ├─ reply_db_api.exe
+│  │  ├─ sessions/
+│  │  └─ replies/
+│  └─ test_*.py
+├─ test_LLM/test_llm_8/     # LLM 回覆服務與測試
+├─ stt/                     # 直播語音轉文字程式
+└─ live_reply_bot_py/       # 獨立的 Python 示範程式
 ```
 
-## Features
+`live_reply_bot_py` 的 `run_demo.py` 是獨立示範，不是桌面直播系統的啟動入口。
 
-- **即時語音辨識**：透過 Google Cloud Speech-to-Text 將直播音訊轉為繁體中文文字。
-- **直播音訊擷取**：使用 `yt-dlp` 取得直播串流音訊，並透過 `ffmpeg` 轉成 STT 可處理的 PCM 音訊格式。
-- **語意結構化輸出**：將辨識結果輸出為 JSONL，包含原始文字、意圖、次要意圖、信心分數與實體資訊。
-- **Speech Context 強化辨識**：支援服飾、飾品等商品情境詞庫，提高特定商品詞彙的辨識穩定度。
-- **LLM / RAG 回覆生成**：使用 Ollama 與 Qwen 模型產生回覆，並可透過 Supabase 查詢相關知識內容。
-- **本機 API 服務**：Flask server 提供 `/process`、`/latest_reply`、`/health` 等 API 供前端或 Extension 呼叫。
-- **Chrome Extension 自動留言**：Extension 會定期輪詢本機 API，取得 AI 回覆後自動填入 Facebook Live 留言框並送出。
-- **一鍵啟動器**：`fb-live-comment-extension/launcher.py` 會啟動 LLM server、STT worker，並開啟指定 Facebook Live 頁面。
-- **多 Chrome Profile 支援**：啟動器中可選擇不同 Chrome profile，便於多帳號或不同直播情境操作。
+## 執行流程與資料
 
-## Installation
+主程式會依選取的帳號與直播列啟動工作。相同直播列的多個帳號共用 STT 檔案，各帳號連到自己的 LLM 服務；不同直播列則使用不同的語音檔案、回覆資料與 LLM 服務。Chrome 擴充功能在對應的直播分頁取得該帳號、直播檔案與 LLM 連接埠資訊，再處理留言。
 
-### Prerequisites
+執行資料位於 `fb-live-comment-extension/dist/sessions/` 與 `fb-live-comment-extension/dist/replies/`。機器人字卡與常用直播主清單保存在 `%LOCALAPPDATA%/FB_Live_Auto_Comment/`，其中包括 `robot_cards.json` 與 `favorite_streamers.json`。關閉字卡不會刪除 Chrome 設定檔或 Facebook 登入資料。
 
-此專案目前依程式碼內容推定需要下列環境：
+LLM 預設使用 Ollama 的 `qwen3:8b`；語意處理使用 `nomic-embed-text`。語句資料 API 使用 MongoDB。更詳細的 LLM 服務說明見 [test_LLM/test_llm_8/README.md](test_LLM/test_llm_8/README.md)。
 
-- Windows 10 / 11
-- Python 3.10 或以上版本
-- Google Chrome
-- Google Cloud Speech-to-Text API 憑證
-- `ffmpeg`
-- `yt-dlp`
-- Ollama
-- Qwen 模型，例如 `qwen3:8b`
-- Embedding 模型，例如 `nomic-embed-text`
-- Supabase 專案與向量查詢函式
+## 開發與檢查
 
-> 注意：目前 repository 沒有統一的根目錄 `requirements.txt`，只有 `stt/requirments.txt` 列出部分 STT 依賴。因此下方安裝指令是依現有程式碼整理，實際套件版本仍建議由開發者確認。
+原始碼在 `fb-live-comment-extension/launcher.py`、`chrome_extension/`、`stt/` 與 `test_LLM/test_llm_8/`。修改擴充功能後，需在每個使用中的 Chrome 設定檔按「重新載入」，再重新開啟直播分頁。打包程式使用 `fb-live-comment-extension/*.spec`；修改 Python 原始碼後，已存在的 `dist/*.exe` 不會自動更新。
 
-### Clone Project
-
-```bash
-git clone https://github.com/Sayhello-Bro/Vibebot.git
-cd Vibebot
-```
-
-### Install Python Packages
-
-STT 模組依賴：
-
-```bash
-pip install -r stt/requirments.txt
-```
-
-LLM / API / RAG 模組依程式碼可能還需要：
-
-```bash
-pip install flask flask-cors supabase ollama yt-dlp imageio-ffmpeg
-```
-
-## Configuration
-
-### Google Cloud Speech-to-Text
-
-STT 模組會尋找 `stt/service_account.json`，如果該檔案存在，程式會自動將其設為 `GOOGLE_APPLICATION_CREDENTIALS`。
-
-也可以手動設定環境變數：
+針對帳號字卡、常用直播主與直播分流邏輯，可在專案目錄執行：
 
 ```powershell
-setx GOOGLE_APPLICATION_CREDENTIALS "C:\path\to\service_account.json"
+cd fb-live-comment-extension
+python -m unittest test_profile_cards test_favorite_streamers test_llm_sessions
+node --test test_content_config.js
 ```
 
-### ffmpeg
-
-`stt/Facebook_stream_input.py` 會依序尋找：
-
-1. 環境變數 `FFMPEG_PATH`
-2. `stt/ffmpeg.exe`
-3. 程式中寫死的本機路徑
-4. `imageio_ffmpeg` 提供的 ffmpeg
-
-建議使用環境變數指定：
-
-```powershell
-setx FFMPEG_PATH "C:\path\to\ffmpeg.exe"
-```
-
-### Ollama Models
-
-請先確認本機 Ollama 已安裝需要的模型，例如：
-
-```bash
-ollama pull qwen3:8b
-ollama pull nomic-embed-text
-```
-
-## Usage
-
-### Option 1: 使用啟動器
-
-```bash
-python fb-live-comment-extension/launcher.py
-```
-
-啟動器會開啟圖形介面，使用者可輸入 Facebook Live URL、選擇 Chrome profile，並啟動完整流程。
-
-啟動後程式會嘗試：
-
-1. 啟動 LLM / RAG Flask server
-2. 等待 `/health` API 回應
-3. 啟動 STT worker
-4. 開啟指定 Facebook Live 頁面
-
-### Option 2: 使用已打包的 EXE 展示
-
-若要用打包後的執行檔展示，可使用下列檔案：
-
-```text
-fb-live-comment-extension/dist/FB_Live_Auto_Comment.exe
-```
-
-同一個 `dist/` 目錄中也包含系統啟動時會用到的模組：
-
-```text
-fb-live-comment-extension/dist/launcher.exe
-fb-live-comment-extension/dist/stt_worker.exe
-fb-live-comment-extension/dist/llm_server.exe
-```
-
-另外，repo 中也保留個別模組的打包輸出：
-
-```text
-stt/dist/stt_worker.exe
-test_LLM/test_llm_4/dist/llm_server.exe
-```
-
-展示時可以使用 `.exe` 版本；若需要說明系統如何運作，則可搭配 Python 腳本展示各模組邏輯。
-
-### Option 3: 分開啟動 Python 模組
-
-啟動 LLM / RAG API：
-
-```bash
-python test_LLM/test_llm_4/rag_chat.py
-```
-
-目前主要使用的 LLM / RAG 版本是：
-
-```text
-test_LLM/test_llm_4/rag_chat.py
-```
-
-啟動 STT：
-
-```bash
-python stt/WASAPI_test.py --url "https://www.facebook.com/..."
-```
-
-STT 可使用的參數包含：
-
-| Parameter | Default | Description |
-|-----------|---------|-------------|
-| `--url` | 程式內建測試 URL | Facebook Live URL |
-| `--output` | `Text.jsonl` | STT 輸出的 JSONL 檔案 |
-| `--stream-id` | `live_1` | 串流識別名稱 |
-| `--chrome-profile` | `Default` | Chrome profile 名稱 |
-
-### Load Chrome Extension
-
-1. 開啟 Chrome
-2. 進入 `chrome://extensions/`
-3. 開啟 Developer mode
-4. 選擇 Load unpacked
-5. 載入 `fb-live-comment-extension/`
-
-Extension 會在 Facebook 頁面中執行 `content.js`，並定期呼叫本機 API：
-
-```text
-POST http://127.0.0.1:5000/process
-```
-
-## API Reference
-
-### Health Check
-
-```http
-GET http://127.0.0.1:5000/health
-```
-
-Response:
-
-```json
-{
-  "status": "ok"
-}
-```
-
-### Process New STT Records
-
-```http
-POST http://127.0.0.1:5000/process
-```
-
-功能：
-
-- 讀取 `Text.jsonl` 中尚未處理的新語音文字
-- 將 `raw_text` 送入 RAG / LLM
-- 將產生的 `ai_reply` 寫回 JSONL
-- 回傳本次處理結果
-
-Response example:
-
-```json
-{
-  "status": "success",
-  "processed_count": 1,
-  "results": [
-    {
-      "input": "我要一件黑色 XL",
-      "reply": "已幫你登記黑色 XL"
-    }
-  ]
-}
-```
-
-### Latest Reply
-
-```http
-GET http://127.0.0.1:5000/latest_reply
-POST http://127.0.0.1:5000/latest_reply
-```
-
-功能：
-
-- 呼叫 `/process`
-- 回傳最新一筆 AI 回覆
-
-## Core Modules
-
-### STT Module
-
-位置：
-
-```text
-stt/WASAPI_test.py
-stt/Facebook_stream_input.py
-```
-
-功能：
-
-- 從 Facebook Live URL 擷取音訊串流
-- 使用 ffmpeg 轉為 16 kHz、mono、LINEAR16 PCM
-- 串接 Google Streaming Speech-to-Text
-- 使用 Speech Context 強化商品詞彙辨識
-- 產生 JSONL 結構化輸出
-
-### LLM / RAG Module
-
-位置：
-
-```text
-test_LLM/test_llm_4/rag_chat.py
-```
-
-功能：
-
-- 讀取 STT 產生的 `Text.jsonl`
-- 使用 Ollama embedding 模型產生查詢向量
-- 透過 Supabase RPC 查詢相近文件
-- 使用 Qwen 模型生成直播回覆
-- 透過 Flask API 提供結果給 Chrome Extension
-
-### Chrome Extension Module
-
-位置：
-
-```text
-fb-live-comment-extension/manifest.json
-fb-live-comment-extension/content.js
-```
-
-功能：
-
-- 在 Facebook 頁面載入 content script
-- 每 4 秒呼叫本機 API
-- 偵測 Facebook 留言輸入框
-- 將 AI 回覆文字填入並送出
-
-### Launcher Module
-
-位置：
-
-```text
-fb-live-comment-extension/launcher.py
-```
-
-功能：
-
-- 提供 Windows GUI 啟動介面
-- 選擇 Chrome profile
-- 輸入 Facebook Live URL
-- 啟動 LLM server、STT worker 與 Chrome
-
-## Project Structure
-
-```text
-Vibebot/
-├── README.md                         # 原始專案說明
-├── fb-live-comment-extension/         # Chrome Extension 與 Windows 啟動器
-│   ├── manifest.json                  # Chrome Extension manifest
-│   ├── content.js                     # 自動留言 content script
-│   ├── launcher.py                    # 一鍵啟動 GUI
-│   ├── server.py                      # 簡易 Flask config server
-│   └── dist/                          # 展示用打包執行檔
-│       ├── FB_Live_Auto_Comment.exe
-│       ├── launcher.exe
-│       ├── stt_worker.exe
-│       └── llm_server.exe
-├── stt/                               # 語音辨識與直播音訊處理
-│   ├── WASAPI_test.py                 # Google Streaming STT 主程式
-│   ├── Facebook_stream_input.py       # yt-dlp / ffmpeg 串流擷取
-│   ├── requirments.txt                # STT 依賴套件
-│   ├── speech_contexts/               # 商品詞庫與 Speech Context
-│   ├── dist/stt_worker.exe            # STT worker 打包執行檔
-│   └── 轉錄檔案/                      # 測試或轉錄輸出資料
-├── test_LLM/                          # LLM 回覆、RAG 與測試程式
-│   ├── test_llm.py                    # MongoDB / sentence-transformers 版本測試
-│   ├── test_llm_4/
-│   │   ├── rag_chat.py                # 目前主要使用的 Supabase + Ollama RAG API
-│   │   └── dist/llm_server.exe        # LLM server 打包執行檔
-│   ├── comment_gen/                   # 留言生成相關測試
-│   └── test_distillation/             # distillation 測試資料與腳本
-├── shiwei/                            # 其他 RAG / MongoDB 測試程式
-├── unsloth_compiled_cache/            # Unsloth trainer cache
-├── 0420 專題簡報.pptx                 # 專題簡報
-└── 0420 測試影片.mp4                  # 測試影片
-```
-
-## Output Files
-
-### `Text.jsonl`
-
-STT 與 LLM 之間共用的中介檔案。STT 會寫入語音辨識結果，LLM server 會讀取新資料並附加 AI 回覆。
-
-STT record example:
-
-```json
-{
-  "time": "2026-05-31T12:00:00",
-  "stream_id": "live_1",
-  "raw_text": "我要一件黑色 XL",
-  "intent": "PRODUCT_TRADE_ACTION",
-  "secondary_intents": ["PRODUCT_COLOR_DESC", "PRODUCT_SIZE_SPEC"],
-  "confidence": 0.93,
-  "entities": {
-    "trade_action": ["要"],
-    "color": ["黑色"],
-    "material": [],
-    "size": ["XL"],
-    "style": []
-  }
-}
-```
-
-LLM reply record example:
-
-```json
-{
-  "timestamp": "[2026-05-31 12:00:05]",
-  "raw_text": "我要一件黑色 XL",
-  "ai_reply": "已幫你登記黑色 XL"
-}
-```
-
-## Notes and Limitations
-
-- 目前專案沒有根目錄 `requirements.txt`，安裝流程需要再整理。
-- 程式碼中有部分本機路徑與測試 URL，正式部署前應改為設定檔或環境變數。
-- 部分中文註解與文件在目前檢視環境出現亂碼，建議統一使用 UTF-8 編碼重新整理。
-- `fb-live-comment-extension/content.js` 會自動送出 Facebook 留言，實際使用前應確認平台規範與使用者授權。
+上述測試檢查局部邏輯；完整的 Facebook 登入、直播擷取與留言流程仍須在已安裝擴充功能的 Chrome 設定檔中驗證。

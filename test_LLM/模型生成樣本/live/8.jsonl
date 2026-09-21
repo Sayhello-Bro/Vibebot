@@ -1,0 +1,471 @@
+{
+  "time": "2026-01-20T08:31:38",
+  "raw_text": "比較簡約的素面，然後他的茶機的顏色，然後長度呢，很優秀有道存下，然後你可以把他們家的相應，然後這個名字啊，可以把它WiFi，而且他是很少做拉鍊的溫度上升溫度嗎？看起來很暖的尺寸s-xl都可以。",
+  "resolved_text": "比較件約的素面，然後他的茶機的顏色，然後長度呢，很優秀有道存下，然後你可以把他們家的相應，然後這個名字啊，可以把它WiFi，二且他是很少做拉鍊的溫度上升溫度嗎？看起來很暖的尺寸s-xl都可以。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "尺寸"
+    ],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9127280712127686,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "WiFi",
+    "xl",
+    "而",
+    "簡"
+  ],
+  "homophone_resolution": [
+    [
+      "而",
+      "二"
+    ],
+    [
+      "簡",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T08:31:47",
+  "raw_text": "看下看水非常的好看，這一間針織外套。",
+  "resolved_text": "看下看水非常的好看，這一件針織外套。",
+  "primary_intent": "PRODUCT_MATERIAL",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [
+      "針織"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8443321585655212,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T08:32:16",
+  "raw_text": "他不會很笨重喔，他不重喔，我看一下樣子，然後我問一下非常推車線有給他線上校線上，下次980個機會就說禮包有更多到啦，這個線上下是950們，這款下坡十大新聞哥2.0。",
+  "resolved_text": "他不塊很笨重喔，他不重喔，我看一下樣子，然後我問一下非常推車線有給他線上校線上，下次980個機塊就說禮包有更多到啦，這個線上下是950們，這款下坡十大新聞哥2.0。",
+  "primary_intent": "PRODUCT_MATERIAL",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [
+      "車線"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9243616461753845,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "980",
+    "950",
+    "2",
+    "0",
+    "會"
+  ],
+  "homophone_resolution": [
+    [
+      "會",
+      "塊"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T08:32:31",
+  "raw_text": "你身上有他的羊毛成份。",
+  "resolved_text": "你身上有他的羊毛成份。",
+  "primary_intent": "PRODUCT_MATERIAL",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [
+      "羊毛"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8873087763786316,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T08:33:34",
+  "raw_text": "這間好舒服喔，來這個有限數量由來10 9999，到大腿這個地方哦，他不會吃的，然後有拉鍊有什麼可以把它全部多少，然後雙頭拉鍊看一下。",
+  "resolved_text": "這件好舒服喔，來這個有限數量由來10 9999，到大腿這個地方哦，他不塊吃的，然後有拉鍊有什麼可以把它全部多少，然後雙頭拉鍊看一下。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9132423400878906,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "10",
+    "9999",
+    "會",
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "會",
+      "塊"
+    ],
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T08:33:59",
+  "raw_text": "買到他有些他就不會做了啦，好不好，這個很可以買，他很羞。",
+  "resolved_text": "買到他有些他就不塊做了啦，好不好，這個很可以買，他很羞。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9086548089981079,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "會"
+  ],
+  "homophone_resolution": [
+    [
+      "會",
+      "塊"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T08:34:59",
+  "raw_text": "哪裡山外觀基本上他們家有影片的啊，都可以搭在裡面，我都可以混搭鐵打的啊，然後外出來最近超優先雙頭拉鍊，雙頭拉鍊超保暖的，我要脫掉又很有點評量，也可以做小洋裝紳士撞桿保守，這是他們保暖的，對吧，他的羊毛成份。",
+  "resolved_text": "哪裡三外觀基本上他們家有影片的啊，都可以搭在裡面，我都可以混搭鐵打的啊，然後外出來最近超優先雙頭拉鍊，雙頭拉鍊超保暖的，我要脫掉又很有點評量，也可以做小洋裝紳士撞桿保守，這是他們保暖的，對吧，他的羊毛成份。",
+  "primary_intent": "PRODUCT_MATERIAL",
+  "secondary_intents": [
+    "PRODUCT_STYLE_DESC"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [
+      "羊毛",
+      "保暖"
+    ],
+    "size": [],
+    "style": [
+      "洋裝"
+    ]
+  },
+  "confidence": 0.9172590970993042,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "山"
+  ],
+  "homophone_resolution": [
+    [
+      "山",
+      "三"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T09:11:00",
+  "raw_text": "他不會很笨重喔，他不重喔，我看一下樣子，然後我問一下非常推車線有給他線上校線上，下次980個機會就說禮包有更多到啦，這個線上下是950們，這個款項有什麼新聞熱點，我喜歡幫我確定一下價錢好舒服喔，這個有限數量喔。",
+  "resolved_text": "他不塊很笨重喔，他不重喔，我看一下樣子，然後我問一下非常推車線有給他線上校線上，下次980個機塊就說禮包有更多到啦，這個線上下是950們，這個款項有什麼新聞熱點，我喜歡幫我確定一下價錢好舒服喔，這個有限數量喔。",
+  "primary_intent": "PRODUCT_MATERIAL",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [
+      "車線"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9137077331542969,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "980",
+    "950",
+    "會"
+  ],
+  "homophone_resolution": [
+    [
+      "會",
+      "塊"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T09:11:30",
+  "raw_text": "數量有限的來10 9999的數量1099，而且它的觸感很舒服，我現在有到大腿這個地方好看怎麼查他不會是的，然後有哪裡？",
+  "resolved_text": "數量有限的來10 9999的數量1099，二且它的觸感很舒服，我現在有到大腿這個地方好看怎麼查他不塊是的，然後有哪裡？",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9080750346183777,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "10",
+    "9999",
+    "1099",
+    "而",
+    "會"
+  ],
+  "homophone_resolution": [
+    [
+      "而",
+      "二"
+    ],
+    [
+      "會",
+      "塊"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T09:12:13",
+  "raw_text": "我自己線上線上家，我要大家，然後雙頭拉鍊，我們看一下，我看一下面上下下，我現在就不會做了啦，這個很可以買，他很兇很兇。",
+  "resolved_text": "我自己線上線上家，我要大家，然後雙頭拉鍊，我們看一下，我看一下面上下下，我現在就不塊做了啦，這個很可以買，他很兇很兇。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9015680551528931,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "會"
+  ],
+  "homophone_resolution": [
+    [
+      "會",
+      "塊"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T09:13:03",
+  "raw_text": "哪裡山外翻譯本上他們家有影片的啊，都可以搭在裡面，我都可以混搭別大的杯子，然後出來最近的超優先雙頭拉鍊，雙頭拉鍊超保暖的ok，我要脫掉又很有點了洋裝紳士撞桿。",
+  "resolved_text": "哪裡三外翻譯本上他們家有影片的啊，都可以搭在裡面，我都可以混搭別大的杯子，然後出來最近的超優先雙頭拉鍊，雙頭拉鍊超保暖的ok，我要脫掉又很有點了洋裝紳士撞桿。",
+  "primary_intent": "PRODUCT_MATERIAL",
+  "secondary_intents": [
+    "PRODUCT_STYLE_DESC"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [
+      "保暖"
+    ],
+    "size": [],
+    "style": [
+      "洋裝"
+    ]
+  },
+  "confidence": 0.9148027300834656,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "ok",
+    "山"
+  ],
+  "homophone_resolution": [
+    [
+      "山",
+      "三"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T09:13:07",
+  "raw_text": "嫂嫂的。",
+  "resolved_text": "嫂嫂的。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.5241101980209351,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T09:14:09",
+  "raw_text": "吃他們保暖對吧，他的羊毛成份生也可以男生也可以穿喔，對啊，看到這一間超好看的比較簡約的素面，然後他的長一個顏色，然後長度呢，很優秀有到椿象。",
+  "resolved_text": "吃他們保暖對吧，他的羊毛成份生也可以男生也可以穿喔，對啊，看到這一件超好看的比較件約的素面，然後他的長一個顏色，然後長度呢，很優秀有到椿象。",
+  "primary_intent": "PRODUCT_MATERIAL",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [
+      "羊毛",
+      "保暖"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9057662487030029,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "簡",
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "簡",
+      "件"
+    ],
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T09:14:33",
+  "raw_text": "然後你可以搭他們家的相應，然後這個名字啊，可以把它WiFi，而且他是做拉鍊的很少政治會做拉鍊的頭套上去溫度上升溫度嗎？是和起來。",
+  "resolved_text": "然後你可以搭他們家的相應，然後這個名字啊，可以把它WiFi，二且他是做拉鍊的很少政治塊做拉鍊的頭套上去溫度上升溫度嗎？是和起來。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9103748798370361,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "WiFi",
+    "而",
+    "會"
+  ],
+  "homophone_resolution": [
+    [
+      "而",
+      "二"
+    ],
+    [
+      "會",
+      "塊"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-20T09:14:41",
+  "raw_text": "保暖度尺寸。",
+  "resolved_text": "保暖度尺寸。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_MATERIAL"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "尺寸"
+    ],
+    "color": [],
+    "material": [
+      "保暖"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8377217650413513,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}

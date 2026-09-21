@@ -1,0 +1,1159 @@
+
+================================================================================
+2026-08-19T02:05:01.670931
+❌ [diagnostic_live_01] yt_dlp failed: ERROR: could not find chrome cookies database in "C:\Users\ASUS\AppData\Local\Google\Chrome\User Data\Profile"
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 318, in _extract_chrome_cookies
+    raise FileNotFoundError(f'could not find {browser_name} cookies database in "{search_root}"')
+FileNotFoundError: could not find chrome cookies database in "C:\Users\ASUS\AppData\Local\Google\Chrome\User Data\Profile"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 125, in start_streaming
+  File "Facebook_stream_input.py", line 97, in get_stream_info
+  File "Facebook_stream_input.py", line 66, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: ERROR: could not find chrome cookies database in "C:\Users\ASUS\AppData\Local\Google\Chrome\User Data\Profile"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 250, in run_stt_pipeline
+  File "WASAPI_test.py", line 263, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 137, in start_streaming
+RuntimeError: ❌ [diagnostic_live_01] yt_dlp failed: ERROR: could not find chrome cookies database in "C:\Users\ASUS\AppData\Local\Google\Chrome\User Data\Profile"
+
+
+================================================================================
+2026-08-19T02:06:01.041463
+❌ [diagnostic_live_01] yt_dlp failed: ERROR: ERROR: Failed to decrypt with DPAPI. See  https://github.com/yt-dlp/yt-dlp/issues/10927  for more info
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 329, in _extract_chrome_cookies
+    decryptor = get_cookie_decryptor(
+  File "yt_dlp\cookies.py", line 434, in get_cookie_decryptor
+    return WindowsChromeCookieDecryptor(browser_root, logger, meta_version=meta_version)
+  File "yt_dlp\cookies.py", line 531, in __init__
+    self._v10_key = _get_windows_v10_key(browser_root, logger)
+  File "yt_dlp\cookies.py", line 1037, in _get_windows_v10_key
+    return _decrypt_windows_dpapi(encrypted_key[len(prefix):], logger)
+  File "yt_dlp\cookies.py", line 1100, in _decrypt_windows_dpapi
+    logger.error(message)
+  File "yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: ERROR: Failed to decrypt with DPAPI. See  https://github.com/yt-dlp/yt-dlp/issues/10927  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 125, in start_streaming
+  File "Facebook_stream_input.py", line 97, in get_stream_info
+  File "Facebook_stream_input.py", line 66, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: ERROR: ERROR: Failed to decrypt with DPAPI. See  https://github.com/yt-dlp/yt-dlp/issues/10927  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 250, in run_stt_pipeline
+  File "WASAPI_test.py", line 263, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 137, in start_streaming
+RuntimeError: ❌ [diagnostic_live_01] yt_dlp failed: ERROR: ERROR: Failed to decrypt with DPAPI. See  https://github.com/yt-dlp/yt-dlp/issues/10927  for more info
+
+
+================================================================================
+2026-08-19T02:16:58.846721
+❌ [fb_account_001_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1180189291855752: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+  File "shutil.py", line 417, in copy
+  File "shutil.py", line 254, in copyfile
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\ASUS\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+  File "yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 107, in get_stream_info
+  File "Facebook_stream_input.py", line 76, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 1180189291855752: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 142, in start_streaming
+  File "Facebook_stream_input.py", line 121, in get_stream_info
+  File "Facebook_stream_input.py", line 76, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 1180189291855752: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 250, in run_stt_pipeline
+  File "WASAPI_test.py", line 264, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 154, in start_streaming
+RuntimeError: ❌ [fb_account_001_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1180189291855752: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+
+================================================================================
+2026-08-26T21:57:17.231774
+400 Malordered Data Received. Expected streaming_config but received audio_content. Send exactly one config, followed by audio data.
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 250, in run_stt_pipeline
+  File "WASAPI_test.py", line 296, in _run_stt_pipeline
+  File "google\cloud\speech_v1\helpers.py", line 81, in streaming_recognize
+    return super(SpeechHelpers, self).streaming_recognize(
+  File "google\cloud\speech_v1\services\speech\client.py", line 1166, in streaming_recognize
+    response = rpc(
+  File "google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+  File "google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+  File "google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.InvalidArgument: 400 Malordered Data Received. Expected streaming_config but received audio_content. Send exactly one config, followed by audio data.
+
+
+================================================================================
+2026-08-26T22:04:53.969102
+400 Malordered Data Received. Expected streaming_config but received audio_content. Send exactly one config, followed by audio data.
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 250, in run_stt_pipeline
+  File "WASAPI_test.py", line 296, in _run_stt_pipeline
+  File "google\cloud\speech_v1\helpers.py", line 81, in streaming_recognize
+    return super(SpeechHelpers, self).streaming_recognize(
+  File "google\cloud\speech_v1\services\speech\client.py", line 1166, in streaming_recognize
+    response = rpc(
+  File "google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+  File "google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+  File "google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.InvalidArgument: 400 Malordered Data Received. Expected streaming_config but received audio_content. Send exactly one config, followed by audio data.
+
+
+================================================================================
+2026-08-26T22:11:33.660740
+❌ [restart_test] yt_dlp failed: ERROR: [facebook] 1180189291855752: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 345, in _extract_chrome_cookies
+    is_encrypted, cookie = _process_chrome_cookie(decryptor, *line)
+  File "yt_dlp\cookies.py", line 380, in _process_chrome_cookie
+    value = decryptor.decrypt(encrypted_value)
+  File "yt_dlp\cookies.py", line 565, in decrypt
+    return _decrypt_windows_dpapi(encrypted_value, self._logger).decode()
+  File "yt_dlp\cookies.py", line 1100, in _decrypt_windows_dpapi
+    logger.error(message)
+  File "yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: ERROR: Failed to decrypt with DPAPI. See  https://github.com/yt-dlp/yt-dlp/issues/10927  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 107, in get_stream_info
+  File "Facebook_stream_input.py", line 76, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: ERROR: ERROR: Failed to decrypt with DPAPI. See  https://github.com/yt-dlp/yt-dlp/issues/10927  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 1180189291855752: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 142, in start_streaming
+  File "Facebook_stream_input.py", line 121, in get_stream_info
+  File "Facebook_stream_input.py", line 76, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: ERROR: [facebook] 1180189291855752: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 258, in run_stt_pipeline
+  File "WASAPI_test.py", line 272, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 154, in start_streaming
+RuntimeError: ❌ [restart_test] yt_dlp failed: ERROR: [facebook] 1180189291855752: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+
+================================================================================
+2026-09-18T18:02:51.583824
+❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+  File "shutil.py", line 417, in copy
+  File "shutil.py", line 254, in copyfile
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 4\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+  File "yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 126, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 201, in start_streaming
+  File "Facebook_stream_input.py", line 141, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 295, in run_stt_pipeline
+  File "WASAPI_test.py", line 309, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 213, in start_streaming
+RuntimeError: ❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+
+================================================================================
+2026-09-18T18:03:40.700295
+❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+  File "shutil.py", line 417, in copy
+  File "shutil.py", line 254, in copyfile
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 4\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+  File "yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 126, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 201, in start_streaming
+  File "Facebook_stream_input.py", line 141, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 295, in run_stt_pipeline
+  File "WASAPI_test.py", line 309, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 213, in start_streaming
+RuntimeError: ❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+
+================================================================================
+2026-09-18T18:05:00.318512
+❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+  File "shutil.py", line 417, in copy
+  File "shutil.py", line 254, in copyfile
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 4\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+  File "yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 126, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 201, in start_streaming
+  File "Facebook_stream_input.py", line 141, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 295, in run_stt_pipeline
+  File "WASAPI_test.py", line 309, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 213, in start_streaming
+RuntimeError: ❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+
+================================================================================
+2026-09-18T18:29:03.285083
+❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+  File "shutil.py", line 417, in copy
+  File "shutil.py", line 254, in copyfile
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 4\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+  File "yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 126, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 201, in start_streaming
+  File "Facebook_stream_input.py", line 141, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 295, in run_stt_pipeline
+  File "WASAPI_test.py", line 309, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 213, in start_streaming
+RuntimeError: ❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+
+================================================================================
+2026-09-18T18:30:11.097968
+❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+  File "shutil.py", line 417, in copy
+  File "shutil.py", line 254, in copyfile
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 4\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+  File "yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 126, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 201, in start_streaming
+  File "Facebook_stream_input.py", line 141, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 295, in run_stt_pipeline
+  File "WASAPI_test.py", line 309, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 213, in start_streaming
+RuntimeError: ❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+
+================================================================================
+2026-09-18T18:37:19.687568
+❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+  File "shutil.py", line 417, in copy
+  File "shutil.py", line 254, in copyfile
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\User\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 4\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+  File "yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 126, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "functools.py", line 981, in __get__
+  File "yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "Facebook_stream_input.py", line 201, in start_streaming
+  File "Facebook_stream_input.py", line 141, in get_stream_info
+  File "Facebook_stream_input.py", line 79, in _extract_stream_info
+  File "yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+  File "yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "WASAPI_test.py", line 295, in run_stt_pipeline
+  File "WASAPI_test.py", line 309, in _run_stt_pipeline
+  File "Facebook_stream_input.py", line 213, in start_streaming
+RuntimeError: ❌ [fb_account_005_live_01] yt_dlp failed: [0;31mERROR:[0m [facebook] 1624736352643958: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+

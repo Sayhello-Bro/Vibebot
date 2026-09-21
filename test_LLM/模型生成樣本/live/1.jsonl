@@ -1,0 +1,64 @@
+{
+  "time": "2026-01-08T05:10:45",
+  "raw_text": "不想脫衣服，一下52巷152樓，紅色黑色白色灰色紅黑白灰黑白回來特價標哪一條紋的特價標，我編號是52的喔，對啊，就是很好看，有沒有買兩座山色有沒有很修飾身型也不買就是大傻瓜，但是現在杏色就是要看舅舅舅子褲子褲子褲子很好看，褲子褲子褲子必買唷，我看看還是個顏色條紋的針織針織掉胸60到80乘60到80歲生紙。",
+  "resolved_text": "這件條紋針織衣有紅色、黑色、白色、灰色，編號是52號，顏色很好看，也很修飾身型，褲子真的必買。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": ["PRODUCT_COLOR_DESC", "PRODUCT_MATERIAL"],
+  "entities": {
+    "product_code": ["52"],
+    "price": [],
+    "trade_action": [],
+    "color": ["紅色", "黑色", "白色", "灰色"],
+    "material": ["針織"],
+    "size": [],
+    "style": ["條紋", "修飾身型"]
+  },
+  "confidence": 0.920,
+  "misrecognitions": [],
+  "product_mode": "clothing",
+  "source": "STEREO_MIX"
+}
+
+{
+  "time": "2026-01-08T05:11:17",
+  "raw_text": "胸60到80，他不會是喔，來長度的話是62公分，長度62個位長度要12樓針織喔，你們看一下這樣子來自紅色嘆號52的紅渦52台52台52台52的，黑52的黑暗示的顏色是52的，飛到長庚有四個顏色給你們家是個顏色喔，是的顏色。",
+  "resolved_text": "這件衣服胸圍大約60到80公分，衣長62公分，材質是針織，有紅色和黑色，編號是52號。",
+  "primary_intent": "PRODUCT_SIZE_SPEC",
+  "secondary_intents": ["PRODUCT_COLOR_DESC", "PRODUCT_MATERIAL"],
+  "entities": {
+    "product_code": ["52"],
+    "price": [],
+    "trade_action": [],
+    "color": ["紅色", "黑色"],
+    "material": ["針織"],
+    "size": ["胸圍60-80公分", "衣長62公分"],
+    "style": []
+  },
+  "confidence": 0.922,
+  "misrecognitions": [],
+  "product_mode": "clothing",
+  "source": "STEREO_MIX"
+}
+
+
+{
+  "time": "2026-01-08T05:12:18",
+  "raw_text": "明天我愛你就回來了，現在回來瘋狂出貨，對，明天我先回來瘋狂初一天就是明天回來看一下格子要多少錢1993起來特價這個價錢喔，聽好了，他不是將來199 52 52顏色加一52紅色菜油輕鬆川菜樓輕鬆穿趕快這間買到賺到了，以買到賺到了來趕快52樓，這個很保暖，耳朵很癢，為什麼顏色加一來趕快說白色白色。",
+  "resolved_text": "這批衣服現在在瘋狂出貨，編號52號，價格199，有紅色跟白色，穿起來輕鬆又保暖，買到真的賺到。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": ["PRODUCT_COLOR_DESC", "PRODUCT_MATERIAL"],
+  "entities": {
+    "product_code": ["52"],
+    "price": ["199"],
+    "trade_action": ["特價", "出貨"],
+    "color": ["紅色", "白色"],
+    "material": ["保暖"],
+    "size": [],
+    "style": ["輕鬆穿"]
+  },
+  "confidence": 0.920,
+  "misrecognitions": [],
+  "product_mode": "clothing",
+  "source": "STEREO_MIX"
+}
+

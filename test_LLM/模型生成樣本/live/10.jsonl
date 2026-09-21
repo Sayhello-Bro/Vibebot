@@ -1,0 +1,956 @@
+{
+  "time": "2026-01-21T19:39:50",
+  "raw_text": "要笑杯。",
+  "resolved_text": "要笑杯。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.7558388710021973,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:40:51",
+  "raw_text": "這裡還有套裝，這個套裝很可以，還是了這一間質感很好喔，超好的，這邊全部是立體的保證，不會是不會癢，會不會是不會癢？是的顏色都很好看來最新編號加一特色是他的粉也做得很好看，然後櫃是歸他的字，那是什麼是坐到麗漂亮4747 399 399會，上次我靠人的賣680啊，人家賣680，超喜歡的474747，應該比較短一點點的短一點點的，所以你們穿上去很好，因為其實很會買衣服一看就知道這種衣服穿上去最好看的。",
+  "resolved_text": "這裡還有套裝，這個套裝很可以，還是了這一件質感很好喔，超好的，這邊全部是立體的保證，不塊是不塊癢，塊不塊是不塊癢？是的顏色都很好看來最新編號加一特色是他的粉也做得很好看，然後櫃是歸他的字，那是什麼是坐到麗漂亮4747 399 399塊，上次我靠人的賣680啊，人家賣680，超喜歡的474747，應該比較短一點點的短一點點的，所以你們穿上去很好，因為其實很塊買衣服一看就知道這種衣服穿上去最好看的。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_STYLE_DESC"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "加一",
+      "編號"
+    ],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": [
+      "套裝"
+    ]
+  },
+  "confidence": 0.9219022393226624,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "4747",
+    "399",
+    "399",
+    "680",
+    "680",
+    "474747",
+    "會",
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "會",
+      "塊"
+    ],
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:41:51",
+  "raw_text": "完售完了，最新編號是8加一有帽子的泳帽子的全部做到QQ毛很保暖一樣隨便搭穿到2L都可以這裡還有口袋這裡還有口袋編號是48加一三九九三九九，好好看喔，帽子帽子黑色兩個顏色還是加一民樂街大鯊魚褲直接搭內搭褲直接搭那個黑褲出門399帽子是大的喔，只是大的喔，這樣子大學的有嗎？有有有。",
+  "resolved_text": "完售完了，最新編號是8加一有帽子的泳帽子的全部做到QQ毛很保暖一樣隨便搭穿到2L都可以這裡還有口袋這裡還有口袋編號是48加一三九九三九九，好好看喔，帽子帽子黑色兩個顏色還是加一民樂街大鯊魚褲直接搭內搭褲直接搭那個黑褲出門399帽子是大的喔，只是大的喔，這樣子大學的有嗎？有有有。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_COLOR_DESC",
+    "PRODUCT_MATERIAL"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "售完",
+      "加一",
+      "編號"
+    ],
+    "color": [
+      "黑色"
+    ],
+    "material": [
+      "保暖"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9191723465919495,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "8",
+    "QQ",
+    "2",
+    "48",
+    "399"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:42:16",
+  "raw_text": "我最近也會賣，最近有沒有時間就是標準的大學踢，直接就是類似這樣子，有沒有一鍵搞定出門一直接出門多久？",
+  "resolved_text": "我最近也塊賣，最近有沒有時件就是標準的大學踢，直接就是類似這樣子，有沒有一鍵搞定出門一直接出門多久？",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.917475163936615,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "會",
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "會",
+      "塊"
+    ],
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:42:51",
+  "raw_text": "有刷毛診間裡面有刷毛的保全部有刷毛的，非常非常舒服的刷毛全不一樣給你們做到這樣子是臭的，雙色的喔，雙色的喔，這個全部是刺繡很有質感，很有質感動進攻是有顏色的顏色，還有做帽子，後面這邊還有做帽子來編號49 49加一。",
+  "resolved_text": "有刷毛診件裡面有刷毛的保全部有刷毛的，非常非常舒服的刷毛全不一樣給你們做到這樣子是臭的，雙色的喔，雙色的喔，這個全部是刺繡很有質感，很有質感動進攻是有顏色的顏色，還有做帽子，後面這邊還有做帽子來編號49 49加一。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_MATERIAL"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "加一",
+      "編號"
+    ],
+    "color": [],
+    "material": [
+      "刷毛"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8615075349807739,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "49",
+    "49",
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:43:48",
+  "raw_text": "Sml XL 2L可以穿來399塊399整間坐到內刷毛呢，還可以充滿哪裡買9個子高的一樣可以直接下半身失蹤19號，就是不知道穿什麼的時候一樣一件直接口的天氣在哪一年的寒流來了，你們去家發熱衣發熱也不讓你看起來很怕他本身就是外面就是一件重點是是9的399。",
+  "resolved_text": "Sml XL 2L可以穿來399塊399整件坐到內刷毛呢，還可以充滿哪裡買9個子高的一樣可以直接下半身失蹤19號，就是不知道穿什麼的時候一樣一件直接口的天氣在哪一年的寒流來了，你們去家發熱衣發熱也不讓你看起來很怕他本身就是外面就是一件重點是是9的399。",
+  "primary_intent": "PRODUCT_MATERIAL",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [
+      "毛呢",
+      "刷毛"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9249550700187683,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "Sml",
+    "XL",
+    "2",
+    "399",
+    "399",
+    "9",
+    "19",
+    "9",
+    "399",
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:46:17",
+  "raw_text": "那個要記起來喔，這樣子加起來那個照片照片來辨他是51對不對？一太空棉的這個先算包款結夏天氣熱的時候都可以穿透，都可以參加一個是一整套整套加一整套的整間做到太空棉，可以看到他有看到他還有黑色黑色配藍色的，很好看，微笑微笑3995，一家1399 399，很可愛，整套399，太空棉的399塊399之川。",
+  "resolved_text": "那個要記起來喔，這樣子加起來那個照片照片來辨他是51對不對？一太空棉的這個先算包款結夏天氣熱的時候都可以穿透，都可以三加一個是一整套整套加一整套的整件做到太空棉，可以看到他有看到他還有黑色黑色配藍色的，很好看，微笑微笑3995，一家1399 399，很可愛，整套399，太空棉的399塊399之川。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_COLOR_DESC"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "加一"
+    ],
+    "color": [
+      "黑色",
+      "藍色"
+    ],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9225402474403381,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "51",
+    "3995",
+    "1399",
+    "399",
+    "399",
+    "399",
+    "399",
+    "參",
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "參",
+      "三"
+    ],
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:46:32",
+  "raw_text": "399 4399。",
+  "resolved_text": "399 4399。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9259988069534302,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "399",
+    "4399"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:47:08",
+  "raw_text": "他們的你們這個絕對一家的尺寸進尺寸是他有人在賣煎的尺寸，是差在買裡面，全部之後的全部出來，他的超大超有質感的，再給你們一件褲子褲子一樣的加一加一個大學踢一個寬褲XL人52加一號。",
+  "resolved_text": "他們的你們這個絕對一家的尺寸進尺寸是他有人在賣煎的尺寸，是差在買裡面，全部之後的全部出來，他的超大超有質感的，再給你們一件褲子褲子一樣的加一加一個大學踢一個塊褲XL人52加一號。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_SIZE_SPEC"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "加一",
+      "尺寸"
+    ],
+    "color": [],
+    "material": [],
+    "size": [
+      "一號"
+    ],
+    "style": []
+  },
+  "confidence": 0.9198286533355713,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "XL",
+    "52",
+    "寬"
+  ],
+  "homophone_resolution": [
+    [
+      "寬",
+      "塊"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:47:32",
+  "raw_text": "為我們那個樣板就沒有就沒有量尺寸的喔，就沒有尺寸了，還是可以傳1399覺得賠錢的。",
+  "resolved_text": "為我們那個樣板就沒有就沒有量尺寸的喔，就沒有尺寸了，還是可以傳1399覺得賠錢的。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "尺寸"
+    ],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9142969250679016,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "1399"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:48:02",
+  "raw_text": "加3度C是他是冬天的褲子，他不是簡單的，其他是加3度C，所以你們都天要穿褲子，不要再穿夏天褲子，褲子是有分夏天跟冬天的褲子，你現在的天氣，你穿夏天的褲子覺得會冰冰涼涼的很笨，你要穿就穿著冬天的兔子來這間。",
+  "resolved_text": "加3度C是他是冬天的褲子，他不是件單的，其他是加3度C，所以你們都天要穿褲子，不要再穿夏天褲子，褲子是有分夏天跟冬天的褲子，你現在的天氣，你穿夏天的褲子覺得塊冰冰涼涼的很笨，你要穿就穿著冬天的兔子來這件。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9083186388015747,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "3",
+    "3",
+    "會",
+    "簡",
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "會",
+      "塊"
+    ],
+    [
+      "簡",
+      "件"
+    ],
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:48:42",
+  "raw_text": "三到四個顏色，這個顏色51 53加一299塊前299 299了，全部都是做松鼠褲頭的s m l XL穿到褲子怎麼做鬆緊的加3度C，這個很多店面都賣到690的九九二九九五三九。",
+  "resolved_text": "三到四個顏色，這個顏色51 53加一299塊前299 299了，全部都是做松鼠褲頭的s m l XL穿到褲子怎麼做鬆緊的加3度C，這個很多店面都賣到690的九九二九九五三九。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "加一"
+    ],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9157469868659973,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "51",
+    "53",
+    "299",
+    "299",
+    "299",
+    "XL",
+    "3",
+    "690"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:48:53",
+  "raw_text": "539。",
+  "resolved_text": "539。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9259988069534302,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "539"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:49:06",
+  "raw_text": "我速度。",
+  "resolved_text": "我速度。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.6957060098648071,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:49:32",
+  "raw_text": "大學整個做到QQ毛的大學的動感覺部分申請後都可以穿這邊全部做到刺繡編號是這樣子，顏色衣服飾加一。",
+  "resolved_text": "大學整個做到QQ毛的大學的動感覺部分申請後都可以穿這邊全部做到刺繡編號是這樣子，顏色衣服飾加一。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "加一",
+      "編號"
+    ],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.906827449798584,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "QQ"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:53:08",
+  "raw_text": "55加1。",
+  "resolved_text": "55加1。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9259988069534302,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "55",
+    "1"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:53:54",
+  "raw_text": "55加一顏色隨機399塊，整建完全不會是完全不一樣，我覺得這個顏色也超好看的，最後最後的3間幫我拿5加1乘下，最後的參見了，那個後面全部都是外灘電視跑出來一下紅包加一。",
+  "resolved_text": "55加一顏色隨機399塊，整件完全不塊是完全不一樣，我覺得這個顏色也超好看的，最後最後的3件幫我拿5加1乘下，最後的三件了，那個後面全部都是外灘電視跑出來一下紅包加一。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "加一"
+    ],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9057838916778564,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "55",
+    "399",
+    "3",
+    "5",
+    "1",
+    "參",
+    "會",
+    "建",
+    "見",
+    "間"
+  ],
+  "homophone_resolution": [
+    [
+      "參",
+      "三"
+    ],
+    [
+      "會",
+      "塊"
+    ],
+    [
+      "建",
+      "件"
+    ],
+    [
+      "見",
+      "件"
+    ],
+    [
+      "間",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:54:18",
+  "raw_text": "紅包加一，我要去換牛仔，我就換那件褲子好了，我就換水那件褲子，因為他因為我現在裡面穿一件內搭褲，黑色灰色再加購。",
+  "resolved_text": "紅包加一，我要去換牛仔，我就換那件褲子好了，我就換水那件褲子，因為他因為我現在裡面穿一件內搭褲，黑色灰色再加購。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_COLOR_DESC",
+    "PRODUCT_MATERIAL"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "加一"
+    ],
+    "color": [
+      "黑色",
+      "灰色"
+    ],
+    "material": [
+      "牛仔"
+    ],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9195185899734497,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:54:24",
+  "raw_text": "現在過去的那個，我看一下號碼。",
+  "resolved_text": "現在過去的那個，我看一下號碼。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8577120900154114,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:54:59",
+  "raw_text": "21世紀的21聖灰色聖灰色黑色全完售了，完售了。",
+  "resolved_text": "21世紀的21聖灰色聖灰色黑色全完售了，完售了。",
+  "primary_intent": "PRODUCT_COLOR_DESC",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [
+      "黑色",
+      "灰色"
+    ],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8709899187088013,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "21",
+    "21"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:55:19",
+  "raw_text": "那個鯊魚骨編號是32542 1432，然後剩灰色家具的32。",
+  "resolved_text": "那個鯊魚骨編號是32542 1432，然後剩灰色家具的32。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_COLOR_DESC"
+  ],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "編號"
+    ],
+    "color": [
+      "灰色"
+    ],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8857765793800354,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "32542",
+    "1432",
+    "32"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:55:26",
+  "raw_text": "你剛才的那個樣板走路到你的購物車喔，都已經收攤了。",
+  "resolved_text": "你剛才的那個樣板走路到你的購物車喔，都已經收攤了。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9163212180137634,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:55:38",
+  "raw_text": "然後如果那個什麼沒有了，就是玩送貨是吃，只不過是吃子都沒有上下過去。",
+  "resolved_text": "然後如果那個什麼沒有了，就是玩送貨是吃，只不過是吃子都沒有上下過去。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8696858286857605,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:56:13",
+  "raw_text": "台灣今日紅包加一。",
+  "resolved_text": "台灣今日紅包加一。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [
+      "加一"
+    ],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8683671951293945,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:56:23",
+  "raw_text": "等我一下喔，我先建立一下還抽10位出租的喔。",
+  "resolved_text": "等我一下喔，我先件立一下還抽10位出租的喔。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8767206072807312,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "10",
+    "建"
+  ],
+  "homophone_resolution": [
+    [
+      "建",
+      "件"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:56:32",
+  "raw_text": "來抽紅包囉，來時為很大來呀林。",
+  "resolved_text": "來抽紅包囉，來時為很大來呀林。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8831724524497986,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:56:36",
+  "raw_text": "I c l a i r e。",
+  "resolved_text": "I c l a i r e。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8939246535301208,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:56:39",
+  "raw_text": "海邊配魚。",
+  "resolved_text": "海邊配魚。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.7941727042198181,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:56:46",
+  "raw_text": "意思為6的5位a h u i c h e n。",
+  "resolved_text": "意四為6的5位a h u i c h e n。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.903812825679779,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "6",
+    "5",
+    "思"
+  ],
+  "homophone_resolution": [
+    [
+      "思",
+      "四"
+    ]
+  ],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:56:52",
+  "raw_text": "16為m i n m i n。",
+  "resolved_text": "16為m i n m i n。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9089332222938538,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "16"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:56:56",
+  "raw_text": "第七位男生恭喜男生。",
+  "resolved_text": "第七位男生恭喜男生。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8061547875404358,
+  "product_mode": "clothing",
+  "misrecognitions": [],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:56:59",
+  "raw_text": "18味敘緣。",
+  "resolved_text": "18味敘緣。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.8183894157409668,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "18"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-21T19:57:32",
+  "raw_text": "第九味Candy以抽到我們的品牌，真的很有誠意的紅包袋好嗎？",
+  "resolved_text": "第九味Candy以抽到我們的品牌，真的很有誠意的紅包袋好嗎？",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9220972061157227,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "Candy"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}

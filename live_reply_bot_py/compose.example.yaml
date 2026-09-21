@@ -1,0 +1,22 @@
+# Local development only. Skip this file if MongoDB already runs on port 27017.
+# This intentionally uses regular MongoDB: the core does not use $vectorSearch.
+services:
+  mongodb:
+    image: mongo:8.0
+    container_name: mongodb-rag
+    ports:
+      - "127.0.0.1:27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:?Set your own MONGO_PASSWORD in .env first}
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand({ping:1}).ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+
+volumes:
+  mongo_data:

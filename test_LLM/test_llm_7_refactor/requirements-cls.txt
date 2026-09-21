@@ -1,0 +1,4 @@
+# Optional per-live-stream CLS context memory.
+# Install together with requirements.txt, then set USE_CLS_MEMORY=true.
+torch>=2.6,<3
+transformers>=4.45,<5

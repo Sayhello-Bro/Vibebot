@@ -1,0 +1,212 @@
+[
+  {
+    "time": "2026-01-19T16:30:01",
+    "raw_text": "欸我跟你們講啦這一顆真的不是開玩笑的，你們看這個光，海水珍珠正圓的，說實話外面真的買不到，今天放福利我自己都心痛，誰要直接結單，真的絕了。",
+    "resolved_text": "欸我跟你們講啦這一顆真的不是開玩笑的，你們看這個光，海水珍珠正圓的，說實話外面真的買不到，今天放福利我自己都心痛，誰要直接結單，真的絕了。",
+    "primary_intent": "PRODUCT_TRADE_ACTION",
+    "secondary_intents": ["PRODUCT_MATERIAL", "PRODUCT_STYLE_DESC"],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": ["結單", "福利", "絕了"],
+      "color": [],
+      "material": ["海水珍珠"],
+      "size": [],
+      "style": ["正圓"]
+    },
+    "confidence": 0.93,
+    "product_mode": "jewelry",
+    "misrecognitions": [],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  },
+  {
+    "time": "2026-01-19T16:30:25",
+    "raw_text": "你們看一下這一條項鍊，欸說實話我不多講，真多麻整圈的，高貨中的高貨，外面實體店直接翻倍，今天我只在直播間給，懂的直接刷，真的絕。",
+    "resolved_text": "你們看一下這一條項鍊，欸說實話我不多講，真多麻整圈的，高貨中的高貨，外面實體店直接翻倍，今天我只在直播間給，懂的直接刷，真的絕。",
+    "primary_intent": "PRODUCT_TRADE_ACTION",
+    "secondary_intents": ["PRODUCT_MATERIAL", "PRODUCT_STYLE_DESC"],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": ["刷", "絕"],
+      "color": [],
+      "material": ["真多麻"],
+      "size": [],
+      "style": ["高貨", "項鍊"]
+    },
+    "confidence": 0.92,
+    "product_mode": "jewelry",
+    "misrecognitions": [],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  },
+  {
+    "time": "2026-01-19T16:30:52",
+    "raw_text": "欸這個戒指我一定要講一下，你們看這個香檳金色，戴起來完全不張揚但超高級，說實話這種質感你外面看價格會嚇到，喜歡的不要想，直接結單。",
+    "resolved_text": "欸這個戒指我一定要講一下，你們看這個香檳金色，戴起來完全不張揚但超高級，說實話這種質感你外面看價格會嚇到，喜歡的不要想，直接結單。",
+    "primary_intent": "PRODUCT_TRADE_ACTION",
+    "secondary_intents": ["PRODUCT_COLOR_DESC", "PRODUCT_STYLE_DESC"],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": ["結單"],
+      "color": ["香檳金"],
+      "material": [],
+      "size": [],
+      "style": ["高級", "戒指"]
+    },
+    "confidence": 0.94,
+    "product_mode": "jewelry",
+    "misrecognitions": [],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  },
+  {
+    "time": "2026-01-19T16:31:18",
+    "raw_text": "這一對耳環你們先聽我講，11到12咪的單顆珍珠，真的不多，我不是唬爛，懂行的現在就會刷，慢了真的沒有，這顆很誇張。",
+    "resolved_text": "這一對耳環你們先聽我講，11到12咪的單顆珍珠，真的不多，我不是唬爛，懂行的現在就會刷，慢了真的沒有，這顆很誇張。",
+    "primary_intent": "PRODUCT_TRADE_ACTION",
+    "secondary_intents": ["PRODUCT_MATERIAL", "PRODUCT_SIZE_SPEC"],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": ["刷"],
+      "color": [],
+      "material": ["珍珠"],
+      "size": ["咪"],
+      "style": ["耳環", "誇張"]
+    },
+    "confidence": 0.92,
+    "product_mode": "jewelry",
+    "misrecognitions": ["11", "12"],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  },
+  {
+    "time": "2026-01-19T16:31:44",
+    "raw_text": "欸這個小兔兔你們看一下，真的可愛到不行，胸針啦不是玩具，細節滿到爆，戴出去一定被問，說實話這個價格我真的沒賺。",
+    "resolved_text": "欸這個小兔兔你們看一下，真的可愛到不行，胸針啦不是玩具，細節滿到爆，戴出去一定被問，說實話這個價格我真的沒賺。",
+    "primary_intent": "PRODUCT_STYLE_DESC",
+    "secondary_intents": [],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": [],
+      "color": [],
+      "material": [],
+      "size": [],
+      "style": ["可愛", "胸針"]
+    },
+    "confidence": 0.91,
+    "product_mode": "jewelry",
+    "misrecognitions": [],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  },
+  {
+    "time": "2026-01-19T16:32:09",
+    "raw_text": "我跟你講這條手鍊真的低調到不行，海水珍珠的，鎖扣很簡單但超有質感，懂的就懂，這種東西戴久了你會回不去。",
+    "resolved_text": "我跟你講這條手鍊真的低調到不行，海水珍珠的，鎖扣很簡單但超有質感，懂的就懂，這種東西戴久了你會回不去。",
+    "primary_intent": "PRODUCT_MATERIAL",
+    "secondary_intents": ["PRODUCT_STYLE_DESC"],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": [],
+      "color": [],
+      "material": ["海水珍珠"],
+      "size": [],
+      "style": ["手鍊"]
+    },
+    "confidence": 0.93,
+    "product_mode": "jewelry",
+    "misrecognitions": [],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  },
+  {
+    "time": "2026-01-19T16:32:36",
+    "raw_text": "來這一顆我要講清楚喔，這不是淡水，是南洋金珠，這個光你們自己看，說實話我第一次拿到也嚇到，真的絕了。",
+    "resolved_text": "來這一顆我要講清楚喔，這不是淡水，是南洋金珠，這個光你們自己看，說實話我第一次拿到也嚇到，真的絕了。",
+    "primary_intent": "PRODUCT_MATERIAL",
+    "secondary_intents": ["PRODUCT_STYLE_DESC"],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": ["絕了"],
+      "color": [],
+      "material": ["南洋金珠"],
+      "size": [],
+      "style": []
+    },
+    "confidence": 0.94,
+    "product_mode": "jewelry",
+    "misrecognitions": [],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  },
+  {
+    "time": "2026-01-19T16:33:01",
+    "raw_text": "左邊是戒指右邊是項鍊，欸我跟你講這是一整套的，分開戴好看，一起戴更絕，今天真的只給直播間，直接結單不要猶豫。",
+    "resolved_text": "左邊是戒指右邊是項鍊，欸我跟你講這是一整套的，分開戴好看，一起戴更絕，今天真的只給直播間，直接結單不要猶豫。",
+    "primary_intent": "PRODUCT_TRADE_ACTION",
+    "secondary_intents": ["PRODUCT_STYLE_DESC"],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": ["結單"],
+      "color": [],
+      "material": [],
+      "size": [],
+      "style": ["戒指", "項鍊"]
+    },
+    "confidence": 0.93,
+    "product_mode": "jewelry",
+    "misrecognitions": [],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  },
+  {
+    "time": "2026-01-19T16:33:28",
+    "raw_text": "這一顆12咪的大白珠你們先看，不誇張真的很少，懂行的一看就知道，這個錯過真的不會再有。",
+    "resolved_text": "這一顆12咪的大白珠你們先看，不誇張真的很少，懂行的一看就知道，這個錯過真的不會再有。",
+    "primary_intent": "PRODUCT_SIZE_SPEC",
+    "secondary_intents": ["PRODUCT_MATERIAL"],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": [],
+      "color": ["白色"],
+      "material": ["珍珠"],
+      "size": ["咪", "大顆"],
+      "style": []
+    },
+    "confidence": 0.92,
+    "product_mode": "jewelry",
+    "misrecognitions": ["12"],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  },
+  {
+    "time": "2026-01-19T16:33:55",
+    "raw_text": "好來最後一輪了喔，我直接收尾，說實話這種福利我不會再放，想要的現在刷，真的不要等，等一下就沒了。",
+    "resolved_text": "好來最後一輪了喔，我直接收尾，說實話這種福利我不會再放，想要的現在刷，真的不要等，等一下就沒了。",
+    "primary_intent": "PRODUCT_TRADE_ACTION",
+    "secondary_intents": [],
+    "entities": {
+      "product_code": [],
+      "price": [],
+      "trade_action": ["刷", "福利"],
+      "color": [],
+      "material": [],
+      "size": [],
+      "style": []
+    },
+    "confidence": 0.94,
+    "product_mode": "jewelry",
+    "misrecognitions": [],
+    "homophone_resolution": [],
+    "source": "STEREO_MIX"
+  }
+]

@@ -1,0 +1,152 @@
+{
+  "time": "2026-01-08T06:30:11",
+  "raw_text": "等一下等一下一個那個小路上幫我用說的就好了，不是我剛剛給你的單子顯瘦顯瘦，沒有什麼好選的，其實這兩個顏色其實說實在真的沒什麼好選擇，就幫我查這一標來，這表示比鄰31的編號是碧玲，為什麼還沒上1031很受哪一間直接給你們多少錢，他一樣190就不用了188 188會，然後一直很挑哦，他是這樣怎麼排列的值可能是抹茶的，不是抹茶那個喝飲料草莓抹茶草莓抹茶給你們看，我喝一組飲料是聽不到。",
+  "resolved_text": "等一下等一下，幫我用說的就好了，不是我剛剛給你的那一單，這件真的顯瘦，沒有什麼好選的，其實這兩個顏色說實在真的沒什麼好選擇，就幫我查這一標來，這表示B03的編號是B03，為什麼B02還沒上，直接給你們多少錢?原價一樣190就不用了現在188塊，然後一直橫條哦，他是這樣排列的直橫條，飲料是抹茶的，喝飲料草莓抹茶草莓抹茶給你們看。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_STYLE_DESC"
+  ],
+  "entities": {
+    "product_code": ["B03"],
+    "price": ["188"],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": [
+      "顯瘦","直條","橫條"
+    ]
+  },
+  "confidence": 0.9171509742736816,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "31",
+    "1031",
+    "190",
+    "188",
+    "188"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-08T06:30:44",
+  "raw_text": "聽星星說很好喝，那我看人家IG都在推薦的，有人喝過嗎？草莓抹茶奶霜曬霜，這個是粗的還是細的？我也喜歡出的，可是他可以用出了嗎？我看一下，我要查西瓜好可愛喔，他上面是貼貝爾的呢，沒有。",
+  "resolved_text": "聽星星說很好喝，那我看人家IG都在推薦的，有人喝過嗎？草莓抹茶奶霜，這個是粗的還是細的？我也喜歡粗的，可是他可以用粗的嗎？我看一下，我要插西瓜好可愛喔，他上面是貼熊的呢。",
+  "primary_intent": "CHAT",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": [],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9047414660453796,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "IG"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+
+
+
+
+{"messages":[{"role":"system","content":"你是直播語音商品理解系統，負責修正語音辨識錯誤，並輸出標準化的商品描述與結構化資訊。"},{"role":"user","content":"聽星星說很好喝，那我看人家IG都在推薦的，有人喝過嗎？草莓抹茶奶霜曬霜，這個是粗的還是細的？我也喜歡出的，可是他可以用出了嗎？我看一下，我要查西瓜好可愛喔，他上面是貼貝爾的呢，沒有。"},{"role":"assistant","content":"{\"resolved_text\":\"聽星星說很好喝，我看IG上很多人在推薦，有人喝過嗎？草莓抹茶奶霜，這個是粗的還是細的？我也喜歡粗的，我看一下西瓜的款式，上面貼的是小熊。\",\"primary_intent\":\"CHAT\",\"entities\":{\"product_code\":[],\"price\":[],\"trade_action\":[],\"color\":[],\"material\":[],\"size\":[],\"style\":[]}}"}]}
+
+
+
+
+
+
+
+{
+  "time": "2026-01-08T06:31:53",
+  "raw_text": "不同好的有，有動了，有飛鏢b03開始加一間不用199，全部改成188會，聽起來就很好喝，柳丁柳丁的就好了，你要什麼草莓奶酪你就喝柳丁綠就好了，一直街1188會隨機福利隨機福利退五桐號的很多次，但好像沒有錄單，不會啊，他是早就完售了啊，早就完售了，你剩下咳嗽最後兩個卡其色就是有點奶茶色那個顏色很漂亮，然後兩件，所以你要的話還有卡，其色101的卡加一目前全部卡加一下，最後兩間紅色最後兩件。",
+  "resolved_text": "好的，有動了，這一標b03開始加一件不用199，全部改成188塊，但好像沒有入單，不會啊，咖色早就完售了啊，早就完售了，你剩下咖色最後兩個卡其色就是有點奶茶色那個顏色很漂亮，然後兩件，所以你要的話還有卡其色B01的卡其色加一目前全部卡其色加一，最後兩間紅色最後兩件。",
+  "primary_intent": "PRODUCT_TRADE_ACTION",
+  "secondary_intents": [
+    "PRODUCT_COLOR_DESC"
+  ],
+  "entities": {
+    "product_code": ["B01"],
+    "price": ["188"],
+    "trade_action": [
+      "加一","入單"],
+    "color": [
+      "卡其色",
+      "咖色",
+      "奶茶色",
+      "紅色"
+    ],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9230009317398071,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "03",
+    "199",
+    "188",
+    "1188",
+    "101"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-08T06:32:30",
+  "raw_text": "好，剩下的，你如果要你們如果要逼林二號最後兩間甜度冰塊怎麼選看心情旋心情不好喝甜一點，心情不好就喝乾一點就給他喝到糖尿病，如果心情好，那就喝無糖，這樣會去遠嗎？不要點這種問題都要問我們啾咪30678，不是啦，你們就不能聞直播，主要看你們的人生。",
+  "resolved_text": "好，剩下的，你如果要你們如果要B02最後兩件，甜度冰塊怎麼選看心情選心情不好喝甜一點，心情不好就喝甘一點就給他喝到糖尿病，如果心情好，那就喝無糖，這樣會選嗎？不要連這種問題都要問我們啾咪。",
+  "primary_intent": "PRODUCT_SIZE_SPEC",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": ["B02"],
+    "price": [],
+    "trade_action": [],
+    "color": [],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9186990261077881,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "30678"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}
+{
+  "time": "2026-01-08T06:33:28",
+  "raw_text": "小事情都很多問題，真的還不能不溫柔，還不能做溫柔，是不是來隨機？不要我生氣的顏色，我剛剛的是為現在的是黑色兩個顏色不一樣，有眼睛看出來是不要臉喔103跟b033下倒數不到5間，但是沒有多的褲子大部分會是黑色啦，那個剩下那個沒有身上沒有是他都髒掉了，你們不要每次我穿什麼，我要過不要啦，第10403瘦了。",
+  "resolved_text": "小事情都很多問題，真的還不能不溫柔，還不能不溫柔是不是?來隨機標我生氣的顏色，我剛剛的是灰色現在的是黑色兩個顏色不一樣，有眼睛看出來是不要喔B03跟B03倒數不到5件，但是沒有多的，褲子大部分會是黑色啦，你們不要每次我穿什麼，我要過標啦。",
+  "primary_intent": "PRODUCT_COLOR_DESC",
+  "secondary_intents": [],
+  "entities": {
+    "product_code": ["B03"],
+    "price": [],
+    "trade_action": [],
+    "color": [
+      "黑色","灰色"
+    ],
+    "material": [],
+    "size": [],
+    "style": []
+  },
+  "confidence": 0.9183644652366638,
+  "product_mode": "clothing",
+  "misrecognitions": [
+    "103",
+    "033",
+    "5",
+    "10403"
+  ],
+  "homophone_resolution": [],
+  "source": "STEREO_MIX"
+}

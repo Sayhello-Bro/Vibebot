@@ -1,0 +1,153 @@
+FB 直播自動留言系統 - 環境安裝器
+============================================================
+[INFO] 需要系統管理員權限安裝 MongoDB / Chrome / Ollama。
+[INFO] 正在重新以系統管理員身分開啟...
+FB 直播自動留言系統 - 環境安裝器
+============================================================
+
+[CHECK] 專案檔案
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\FB_Live_Auto_Comment.exe
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\llm_server.exe
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\stt_worker.exe
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension\manifest.json
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension\content.js
+
+[CHECK] Google Chrome
+[OK] Chrome 已安裝：C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[CHECK] MongoDB
+[OK] MongoDB 已安裝。
+> sc start MongoDB
+[SC] StartService �L�k 1056:
+
+�A�Ȫ��Ҷ��w�b���椤�C
+
+[CHECK] Ollama
+[OK] Ollama 已安裝：C:\Users\User\AppData\Local\Programs\Ollama\ollama.exe
+[INSTALL] 正在下載 Ollama 模型：nomic-embed-text
+> C:\Users\User\AppData\Local\Programs\Ollama\ollama.exe pull nomic-embed-text
+[?2026h[?25l[1Gpulling manifest ⠋ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠙ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠹ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠸ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠼ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠴ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠦ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠧ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠇ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠏ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠋ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠙ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest [K[?25h[?2026l
+Error: pull model manifest: Get "https://registry.ollama.ai/v2/library/nomic-embed-text/manifests/latest": dial tcp: lookup registry.ollama.ai: no such host
+
+============================================================
+安裝檢查結果
+[WARN] 專案檔案
+[OK] Chrome
+[OK] MongoDB
+[WARN] Ollama + model
+
+[INFO] Chrome extension 需要手動載入一次。
+[INFO] 請在 Chrome 擴充功能頁面載入這個資料夾：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension
+
+下一步：
+1. 在 Chrome 擴充功能頁面打開「開發人員模式」。
+2. 點「載入未封裝項目」，選擇：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension
+3. 執行主程式：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\FB_Live_Auto_Comment.exe
+
+安裝紀錄：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\environment_setup.log
+FB 直播自動留言系統 - 環境安裝器
+============================================================
+[INFO] 需要系統管理員權限安裝 MongoDB / Chrome / Ollama。
+[INFO] 正在重新以系統管理員身分開啟...
+FB 直播自動留言系統 - 環境安裝器
+============================================================
+
+[CHECK] 專案檔案
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\FB_Live_Auto_Comment.exe
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\llm_server.exe
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\stt_worker.exe
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension\manifest.json
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension\content.js
+
+[CHECK] Google Chrome
+[OK] Chrome 已安裝：C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[CHECK] MongoDB
+[OK] MongoDB 已安裝。
+> sc start MongoDB
+[SC] StartService �L�k 1056:
+
+�A�Ȫ��Ҷ��w�b���椤�C
+
+[CHECK] Ollama
+[OK] Ollama 已安裝：C:\Users\User\AppData\Local\Programs\Ollama\ollama.exe
+[INSTALL] 正在下載 Ollama 模型：nomic-embed-text
+> C:\Users\User\AppData\Local\Programs\Ollama\ollama.exe pull nomic-embed-text
+[?2026h[?25l[1Gpulling manifest ⠋ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠙ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠹ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠸ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠼ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠴ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠦ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠧ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠇ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠏ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest [K
+pulling 970aa74c0a90: 100% ▕██████████████████▏ 274 MB                         [K
+pulling c71d239df917: 100% ▕██████████████████▏  11 KB                         [K
+pulling ce4a164fc046: 100% ▕██████████████████▏   17 B                         [K
+pulling 31df23ea7daa: 100% ▕██████████████████▏  420 B                         [K
+verifying sha256 digest [K
+writing manifest [K
+success [K[?25h[?2026l
+
+============================================================
+安裝檢查結果
+[WARN] 專案檔案
+[OK] Chrome
+[OK] MongoDB
+[OK] Ollama + model
+
+[INFO] Chrome extension 需要手動載入一次。
+[INFO] 請在 Chrome 擴充功能頁面載入這個資料夾：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension
+
+下一步：
+1. 在 Chrome 擴充功能頁面打開「開發人員模式」。
+2. 點「載入未封裝項目」，選擇：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension
+3. 執行主程式：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\FB_Live_Auto_Comment.exe
+
+安裝紀錄：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\environment_setup.log
+FB 直播自動留言系統 - 環境安裝器
+============================================================
+[INFO] 需要系統管理員權限安裝 MongoDB / Chrome / Ollama。
+[INFO] 正在重新以系統管理員身分開啟...
+FB 直播自動留言系統 - 環境安裝器
+============================================================
+
+[CHECK] 專案檔案
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\FB_Live_Auto_Comment.exe
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\llm_server.exe
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\stt_worker.exe
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension\manifest.json
+[MISSING] C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension\content.js
+
+[CHECK] Google Chrome
+[OK] Chrome 已安裝：C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[CHECK] MongoDB
+[OK] MongoDB 已安裝。
+> sc start MongoDB
+[SC] StartService �L�k 1056:
+
+�A�Ȫ��Ҷ��w�b���椤�C
+
+[CHECK] Ollama
+[OK] Ollama 已安裝：C:\Users\User\AppData\Local\Programs\Ollama\ollama.exe
+[INSTALL] 正在下載 Ollama 模型：nomic-embed-text
+> C:\Users\User\AppData\Local\Programs\Ollama\ollama.exe pull nomic-embed-text
+[?2026h[?25l[1Gpulling manifest ⠋ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠙ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠹ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠸ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠼ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠴ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠦ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠧ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠇ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠏ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠋ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠙ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest [K
+pulling 970aa74c0a90: 100% ▕██████████████████▏ 274 MB                         [K
+pulling c71d239df917: 100% ▕██████████████████▏  11 KB                         [K
+pulling ce4a164fc046: 100% ▕██████████████████▏   17 B                         [K
+pulling 31df23ea7daa: 100% ▕██████████████████▏  420 B                         [K
+verifying sha256 digest [K
+writing manifest [K
+success [K[?25h[?2026l
+
+============================================================
+安裝檢查結果
+[WARN] 專案檔案
+[OK] Chrome
+[OK] MongoDB
+[OK] Ollama + model
+
+[INFO] Chrome extension 需要手動載入一次。
+[INFO] 請在 Chrome 擴充功能頁面載入這個資料夾：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension
+
+下一步：
+1. 在 Chrome 擴充功能頁面打開「開發人員模式」。
+2. 點「載入未封裝項目」，選擇：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\chrome_extension
+3. 執行主程式：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\FB_Live_Auto_Comment.exe
+
+安裝紀錄：C:\Users\User\Desktop\畢業專題\final_project\fb-live-comment-extension\fb-live-comment-extension\dist\environment_setup.log

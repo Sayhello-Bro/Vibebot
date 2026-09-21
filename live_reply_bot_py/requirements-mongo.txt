@@ -1,0 +1,2 @@
+# Required example-store driver for all non-mock application launches.
+pymongo>=4.6,<5

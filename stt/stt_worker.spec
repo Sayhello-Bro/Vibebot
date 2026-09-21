@@ -1,9 +1,13 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_all
 
-datas = [('.\\speech_contexts', 'speech_contexts'), ('.\\service_account.json', '.')]
+datas = [
+    ('.\\speech_contexts', 'speech_contexts'),
+    ('.\\service_account.json', '.'),
+    ('.\\stt_api_key.txt', '.'),
+]
 binaries = []
-hiddenimports = ['Facebook_stream_input']
+hiddenimports = ['Facebook_stream_input', 'audio_queue_stream']
 
 for package in [
     'google',

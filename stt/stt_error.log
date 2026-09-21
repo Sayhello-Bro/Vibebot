@@ -1,0 +1,740 @@
+
+================================================================================
+2026-08-19T02:07:17.946414
+❌ [diagnostic_live_01] yt_dlp failed: ERROR: [facebook] 1180189291855752: Unable to download webpage: HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。 (caused by TransportError("HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。"))
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\cookies.py", line 329, in _extract_chrome_cookies
+    decryptor = get_cookie_decryptor(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\cookies.py", line 434, in get_cookie_decryptor
+    return WindowsChromeCookieDecryptor(browser_root, logger, meta_version=meta_version)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\cookies.py", line 531, in __init__
+    self._v10_key = _get_windows_v10_key(browser_root, logger)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\cookies.py", line 1037, in _get_windows_v10_key
+    return _decrypt_windows_dpapi(encrypted_key[len(prefix):], logger)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\cookies.py", line 1100, in _decrypt_windows_dpapi
+    logger.error(message)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: ERROR: Failed to decrypt with DPAPI. See  https://github.com/yt-dlp/yt-dlp/issues/10927  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Desktop\Final_Project\final_project\stt\Facebook_stream_input.py", line 97, in get_stream_info
+    return _extract_stream_info(url, chrome_profile)
+  File "C:\Users\ASUS\Desktop\Final_Project\final_project\stt\Facebook_stream_input.py", line 66, in _extract_stream_info
+    info = ydl.extract_info(url, download=False)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\functools.py", line 981, in __get__
+    val = self.func(instance)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: ERROR: ERROR: Failed to decrypt with DPAPI. See  https://github.com/yt-dlp/yt-dlp/issues/10927  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+PermissionError: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\networking\_requests.py", line 324, in _send
+    requests_res = session.request(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\retry.py", line 465, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\util\util.py", line 39, in reraise
+    raise value
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connection.py", line 219, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\networking\common.py", line 117, in send
+    response = handler.send(request)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\networking\_helper.py", line 194, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\networking\common.py", line 359, in send
+    return self._send(request)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\networking\_requests.py", line 352, in _send
+    raise TransportError(cause=e) from e
+yt_dlp.networking.exceptions.TransportError: HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\extractor\common.py", line 925, in _request_webpage
+    raise ExtractorError(errmsg, cause=err)
+yt_dlp.utils.ExtractorError: [facebook] 1180189291855752: Unable to download webpage: HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。 (caused by TransportError("HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Desktop\Final_Project\final_project\stt\Facebook_stream_input.py", line 132, in start_streaming
+    stream_info = get_stream_info(url, chrome_profile)
+  File "C:\Users\ASUS\Desktop\Final_Project\final_project\stt\Facebook_stream_input.py", line 111, in get_stream_info
+    return _extract_stream_info(url, None)
+  File "C:\Users\ASUS\Desktop\Final_Project\final_project\stt\Facebook_stream_input.py", line 66, in _extract_stream_info
+    info = ydl.extract_info(url, download=False)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python310\lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: ERROR: [facebook] 1180189291855752: Unable to download webpage: HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。 (caused by TransportError("HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\Desktop\Final_Project\final_project\stt\WASAPI_test.py", line 250, in run_stt_pipeline
+    _run_stt_pipeline(stream_id, url, output_file)
+  File "C:\Users\ASUS\Desktop\Final_Project\final_project\stt\WASAPI_test.py", line 264, in _run_stt_pipeline
+    audio_queue, stream_info = start_streaming(stream_id, url, ARGS.chrome_profile)
+  File "C:\Users\ASUS\Desktop\Final_Project\final_project\stt\Facebook_stream_input.py", line 144, in start_streaming
+    raise RuntimeError(
+RuntimeError: ❌ [diagnostic_live_01] yt_dlp failed: ERROR: [facebook] 1180189291855752: Unable to download webpage: HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。 (caused by TransportError("HTTPSConnection(host='www.facebook.com', port=443): Failed to establish a new connection: [WinError 10013] 嘗試存取通訊端被拒絕，因為存取權限不足。"))
+
+
+================================================================================
+2026-08-20T13:15:55.524727
+❌ [live_1] yt_dlp failed: [0;31mERROR:[0m [facebook] 1627420048810066: 1627420048810066: Error reading response: ("Connection broken: ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)", ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)) (caused by TransportError('("Connection broken: ConnectionResetError(10054, \'遠端主機已強制關閉一個現存的連線。\', None, 10054, None)", ConnectionResetError(10054, \'遠端主機已強制關閉一個現存的連線。\', None, 10054, None))'))
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 428, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 260, in copyfile
+    with open(src, 'rb') as fsrc:
+         ~~~~^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\USER\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+    ~~~~~~~~~~~~^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+        self.params.get('cookiefile'), self.params.get('cookiesfrombrowser'), self)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 107, in get_stream_info
+    return _extract_stream_info(url, chrome_profile)
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 76, in _extract_stream_info
+    info = ydl.extract_info(url, download=False)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+        url.replace('://m.facebook.com/', '://www.facebook.com/'), video_id)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+                                 headers=headers, query=query, expected_status=expected_status,
+                                 impersonate=impersonate, require_impersonation=require_impersonation)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\functools.py", line 1042, in __get__
+    val = self.func(instance)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+              ^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\functools.py", line 1042, in __get__
+    val = self.func(instance)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\urllib3\response.py", line 899, in _error_catcher
+    yield
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\urllib3\response.py", line 1024, in _raw_read
+    data = self._fp_read(amt, read1=read1) if not fp_closed else b""
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\urllib3\response.py", line 1007, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+           ~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 473, in read
+    return self._read_chunked(amt)
+           ~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 603, in _read_chunked
+    value.append(self._safe_read(chunk_left))
+                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 642, in _safe_read
+    data = self.fp.read(amt)
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] 遠端主機已強制關閉一個現存的連線。
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\networking\_requests.py", line 134, in read
+    data = self._real_read(amt)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\networking\_requests.py", line 128, in _real_read
+    return b''.join(iter(read_chunk, b''))
+           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\urllib3\response.py", line 1108, in read
+    data = self._raw_read(amt)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\urllib3\response.py", line 1023, in _raw_read
+    with self._error_catcher():
+         ~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\contextlib.py", line 162, in __exit__
+    self.gen.throw(value)
+    ~~~~~~~~~~~~~~^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\urllib3\response.py", line 926, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ("Connection broken: ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)", ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1045, in _webpage_read_content
+    webpage_bytes = urlh.read()
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\networking\_requests.py", line 153, in read
+    raise TransportError(cause=e) from e
+yt_dlp.networking.exceptions.TransportError: ("Connection broken: ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)", ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+        url.replace('://m.facebook.com/', '://www.facebook.com/'), video_id)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 982, in _download_webpage_handle
+    content = self._webpage_read_content(urlh, url_or_request, video_id, note, errnote, fatal,
+                                         encoding=encoding, data=data)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1049, in _webpage_read_content
+    raise ExtractorError(errmsg, cause=err)
+yt_dlp.utils.ExtractorError: [facebook] 1627420048810066: 1627420048810066: Error reading response: ("Connection broken: ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)", ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)) (caused by TransportError('("Connection broken: ConnectionResetError(10054, \'遠端主機已強制關閉一個現存的連線。\', None, 10054, None)", ConnectionResetError(10054, \'遠端主機已強制關閉一個現存的連線。\', None, 10054, None))'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 142, in start_streaming
+    stream_info = get_stream_info(url, chrome_profile)
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 121, in get_stream_info
+    return _extract_stream_info(url, None)
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 76, in _extract_stream_info
+    info = ydl.extract_info(url, download=False)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 1627420048810066: 1627420048810066: Error reading response: ("Connection broken: ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)", ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)) (caused by TransportError('("Connection broken: ConnectionResetError(10054, \'遠端主機已強制關閉一個現存的連線。\', None, 10054, None)", ConnectionResetError(10054, \'遠端主機已強制關閉一個現存的連線。\', None, 10054, None))'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\WASAPI_test.py", line 302, in run_stt_pipeline
+    _run_stt_pipeline(stream_id, url, output_file)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\WASAPI_test.py", line 316, in _run_stt_pipeline
+    audio_queue, stream_info = start_streaming(stream_id, url, ARGS.chrome_profile)
+                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 154, in start_streaming
+    raise RuntimeError(
+        f"❌ [{stream_id}] yt_dlp failed: {e}"
+    )
+RuntimeError: ❌ [live_1] yt_dlp failed: [0;31mERROR:[0m [facebook] 1627420048810066: 1627420048810066: Error reading response: ("Connection broken: ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)", ConnectionResetError(10054, '遠端主機已強制關閉一個現存的連線。', None, 10054, None)) (caused by TransportError('("Connection broken: ConnectionResetError(10054, \'遠端主機已強制關閉一個現存的連線。\', None, 10054, None)", ConnectionResetError(10054, \'遠端主機已強制關閉一個現存的連線。\', None, 10054, None))'))
+
+
+================================================================================
+2026-08-21T12:02:04.429643
+❌ [live_1] yt_dlp failed: [0;31mERROR:[0m [facebook] 1962181851111142: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 428, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 260, in copyfile
+    with open(src, 'rb') as fsrc:
+         ~~~~^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\USER\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+    ~~~~~~~~~~~~^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+        self.params.get('cookiefile'), self.params.get('cookiesfrombrowser'), self)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 107, in get_stream_info
+    return _extract_stream_info(url, chrome_profile)
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 76, in _extract_stream_info
+    info = ydl.extract_info(url, download=False)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+        url.replace('://m.facebook.com/', '://www.facebook.com/'), video_id)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+                                 headers=headers, query=query, expected_status=expected_status,
+                                 impersonate=impersonate, require_impersonation=require_impersonation)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\functools.py", line 1042, in __get__
+    val = self.func(instance)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+              ^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\functools.py", line 1042, in __get__
+    val = self.func(instance)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 1962181851111142: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 142, in start_streaming
+    stream_info = get_stream_info(url, chrome_profile)
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 121, in get_stream_info
+    return _extract_stream_info(url, None)
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 76, in _extract_stream_info
+    info = ydl.extract_info(url, download=False)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 1962181851111142: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\WASAPI_test.py", line 302, in run_stt_pipeline
+    _run_stt_pipeline(stream_id, url, output_file)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\WASAPI_test.py", line 316, in _run_stt_pipeline
+    audio_queue, stream_info = start_streaming(stream_id, url, ARGS.chrome_profile)
+                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 154, in start_streaming
+    raise RuntimeError(
+        f"❌ [{stream_id}] yt_dlp failed: {e}"
+    )
+RuntimeError: ❌ [live_1] yt_dlp failed: [0;31mERROR:[0m [facebook] 1962181851111142: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+
+================================================================================
+2026-08-21T16:26:18.184027
+❌ [live_1] yt_dlp failed: [0;31mERROR:[0m [facebook] 4087320844899936: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 324, in _extract_chrome_cookies
+    cursor = _open_database_copy(cookie_database_path, tmpdir)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 1115, in _open_database_copy
+    shutil.copy(database_path, database_copy_path)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 428, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\shutil.py", line 260, in copyfile
+    with open(src, 'rb') as fsrc:
+         ~~~~^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\USER\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Network\\Cookies'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 99, in load_cookies
+    extract_cookies_from_browser(browser_name, profile, YDLLogger(ydl), keyring=keyring, container=container))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 122, in extract_cookies_from_browser
+    return _extract_chrome_cookies(browser_name, profile, keyring, logger)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 364, in _extract_chrome_cookies
+    logger.error(message)
+    ~~~~~~~~~~~~^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\utils\_utils.py", line 5691, in error
+    self._ydl.report_error(message, is_error=is_error)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4182, in cookiejar
+    return load_cookies(
+        self.params.get('cookiefile'), self.params.get('cookiesfrombrowser'), self)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\cookies.py", line 113, in load_cookies
+    raise CookieLoadError('failed to load cookies')
+yt_dlp.cookies.CookieLoadError: failed to load cookies
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 107, in get_stream_info
+    return _extract_stream_info(url, chrome_profile)
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 76, in _extract_stream_info
+    info = ydl.extract_info(url, download=False)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 469, in _extract_from_url
+    webpage = self._download_webpage(
+        url.replace('://m.facebook.com/', '://www.facebook.com/'), video_id)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1202, in _download_webpage
+    return self.__download_webpage(url_or_request, video_id, note, errnote, None, fatal, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 1153, in download_content
+    res = getattr(self, download_handle.__name__)(url_or_request, video_id, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 976, in _download_webpage_handle
+    urlh = self._request_webpage(url_or_request, video_id, note, errnote, fatal, data=data,
+                                 headers=headers, query=query, expected_status=expected_status,
+                                 impersonate=impersonate, require_impersonation=require_impersonation)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 912, in _request_webpage
+    return self._downloader.urlopen(self._create_request(url_or_request, data, headers, query, extensions))
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4260, in urlopen
+    return self._request_director.send(req)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\functools.py", line 1042, in __get__
+    val = self.func(instance)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4340, in _request_director
+    return self.build_request_director(_REQUEST_HANDLERS.values(), _RH_PREFERENCES)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4315, in build_request_director
+    cookiejar=self.cookiejar,
+              ^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\functools.py", line 1042, in __get__
+    val = self.func(instance)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 4186, in cookiejar
+    self.report_error(str(cause), tb=''.join(traceback.format_exception(cause)))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [0;31mERROR:[0m Could not copy Chrome cookie database. See  https://github.com/yt-dlp/yt-dlp/issues/7271  for more info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1698, in wrapper
+    return func(self, *args, **kwargs)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1833, in __extract_info
+    ie_result = ie.extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\common.py", line 765, in extract
+    ie_result = self._real_extract(url)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 883, in _real_extract
+    return self._extract_from_url(real_url, video_id)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\extractor\facebook.py", line 828, in _extract_from_url
+    raise ExtractorError('Cannot parse data')
+yt_dlp.utils.ExtractorError: [facebook] 4087320844899936: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 142, in start_streaming
+    stream_info = get_stream_info(url, chrome_profile)
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 121, in get_stream_info
+    return _extract_stream_info(url, None)
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 76, in _extract_stream_info
+    info = ydl.extract_info(url, download=False)
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1687, in extract_info
+    return self.__extract_info(url, self.get_info_extractor(key), download, extra_info, process)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1716, in wrapper
+    self.report_error(str(e), e.format_traceback())
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1154, in report_error
+    self.trouble(f'{self._format_err("ERROR:", self.Styles.ERROR)} {message}', *args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\USER\Desktop\畢業專題\final_project\stt\stt_env\Lib\site-packages\yt_dlp\YoutubeDL.py", line 1093, in trouble
+    raise DownloadError(message, exc_info)
+yt_dlp.utils.DownloadError: [0;31mERROR:[0m [facebook] 4087320844899936: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\WASAPI_test.py", line 302, in run_stt_pipeline
+    _run_stt_pipeline(stream_id, url, output_file)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\WASAPI_test.py", line 316, in _run_stt_pipeline
+    audio_queue, stream_info = start_streaming(stream_id, url, ARGS.chrome_profile)
+                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\畢業專題\final_project\stt\Facebook_stream_input.py", line 154, in start_streaming
+    raise RuntimeError(
+        f"❌ [{stream_id}] yt_dlp failed: {e}"
+    )
+RuntimeError: ❌ [live_1] yt_dlp failed: [0;31mERROR:[0m [facebook] 4087320844899936: Cannot parse data; please report this issue on  https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest version using  yt-dlp -U
+

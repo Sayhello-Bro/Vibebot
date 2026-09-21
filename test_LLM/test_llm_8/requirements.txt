@@ -1,0 +1,12 @@
+# Web APIs
+Flask>=3.1,<4
+flask-cors>=6,<7
+
+# MongoDB (also provides the bson package used by user_input.py)
+pymongo>=4.10,<5
+
+# Local Qwen and embedding calls through Ollama
+ollama>=0.6,<1
+
+# Build llm_server.spec into a Windows executable
+PyInstaller>=6,<7
