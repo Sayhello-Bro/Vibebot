@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">VibeBot:直播氛圍機器人</title>
+  <desc id="desc">VibeBot 畢業專題影片封面，包含指導教授與四位組員資訊。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06142c"/>
+      <stop offset="0.5" stop-color="#123966"/>
+      <stop offset="1" stop-color="#071d35"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#57dfd2"/>
+      <stop offset="1" stop-color="#6bbcff"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c4778"/>
+      <stop offset="1" stop-color="#0d294d"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#9bd7ff" stroke-opacity=".055" stroke-width="2"/>
+    </pattern>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity=".3"/>
+    </filter>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <style>
+      .tc { font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; fill: #f4f9ff; }
+      .muted { font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; fill: #b8d2ec; }
+      .eyebrow { font-family: Arial, sans-serif; fill: #72e0d5; font-size: 22px; font-weight: 700; letter-spacing: 5px; }
+      .line { fill: none; stroke: #72e0d5; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .member { font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; fill: #f4f9ff; font-size: 24px; }
+      .role { font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif; fill: #77dfd5; font-size: 22px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+  <circle cx="250" cy="210" r="240" fill="#3bcfc4" opacity=".1" filter="url(#softGlow)"/>
+  <circle cx="1740" cy="820" r="300" fill="#4d9ff0" opacity=".1" filter="url(#softGlow)"/>
+  <path d="M0 910C330 770 470 1040 810 910S1320 770 1920 900V1080H0Z" fill="#06182e" opacity=".52"/>
+
+  <!-- Decorative live / audio / chat symbols -->
+  <g transform="translate(280 245)" opacity=".82">
+    <circle r="82" fill="#163e68" stroke="#55dcd2" stroke-width="3"/>
+    <circle r="57" fill="none" stroke="#55dcd2" stroke-width="4" stroke-dasharray="5 14"/>
+    <path class="line" d="M-24-37v54M24-37v54M-24-37c0-18 24-25 24 0v54c0 18-24 25-24 0M24-37c0-18-24-25-24 0"/>
+    <path d="M-45 47h90" stroke="#55dcd2" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(1640 245)" opacity=".8">
+    <circle r="82" fill="#163e68" stroke="#6bbcff" stroke-width="3"/>
+    <path d="M-48-40h96v63h-54l-32 25v-25h-10z" fill="none" stroke="#6bbcff" stroke-width="6" stroke-linejoin="round"/>
+    <circle cx="-24" cy="-8" r="5" fill="#6bbcff"/><circle cx="0" cy="-8" r="5" fill="#6bbcff"/><circle cx="24" cy="-8" r="5" fill="#6bbcff"/>
+  </g>
+
+  <text x="960" y="185" text-anchor="middle" class="eyebrow">GRADUATION PROJECT</text>
+  <text x="960" y="350" text-anchor="middle" class="tc" font-size="96" font-weight="700">VibeBot:直播氛圍機器人</text>
+  <rect x="540" y="390" width="840" height="5" rx="2.5" fill="url(#glow)"/>
+  <text x="960" y="455" text-anchor="middle" class="muted" font-size="28">Facebook 直播自動留言系統</text>
+
+  <!-- Professor -->
+  <g transform="translate(960 555)" opacity=".72">
+    <rect x="-300" y="-62" width="600" height="124" rx="28" fill="url(#panel)" fill-opacity=".62" stroke="#4c9ed1" stroke-opacity=".45" stroke-width="2"/>
+    <circle cx="-230" r="32" fill="#55dcd2" opacity=".12"/>
+    <path class="line" d="M-246 0l11 11 22-26"/>
+    <text x="-178" y="9" class="role" font-size="19">指導教授</text>
+    <text x="70" y="9" text-anchor="middle" class="tc" font-size="29" font-weight="700">陳仁暉</text>
+  </g>
+
+  <text x="960" y="705" text-anchor="middle" class="eyebrow" font-size="16" opacity=".58">TEAM MEMBERS</text>
+
+  <!-- Team member cards -->
+  <g opacity=".68">
+    <rect x="105" y="750" width="390" height="142" rx="24" fill="url(#panel)" fill-opacity=".55" stroke="#2f78af" stroke-opacity=".4" stroke-width="2"/>
+    <rect x="530" y="750" width="390" height="142" rx="24" fill="url(#panel)" fill-opacity=".55" stroke="#2f78af" stroke-opacity=".4" stroke-width="2"/>
+    <rect x="1000" y="750" width="390" height="142" rx="24" fill="url(#panel)" fill-opacity=".55" stroke="#2f78af" stroke-opacity=".4" stroke-width="2"/>
+    <rect x="1425" y="750" width="390" height="142" rx="24" fill="url(#panel)" fill-opacity=".55" stroke="#2f78af" stroke-opacity=".4" stroke-width="2"/>
+  </g>
+
+  <g class="member" opacity=".72">
+    <circle cx="155" cy="821" r="25" fill="#55dcd2" opacity=".13"/><text x="155" y="829" text-anchor="middle" class="role" font-size="16">01</text>
+    <text x="205" y="811" font-size="18">B1229018</text><text x="205" y="850" font-size="25" font-weight="700">洪崑誌</text>
+    <circle cx="580" cy="821" r="25" fill="#6bbcff" opacity=".13"/><text x="580" y="829" text-anchor="middle" class="role" font-size="16">02</text>
+    <text x="630" y="811" font-size="18">B1229047</text><text x="630" y="850" font-size="25" font-weight="700">陳碩軒</text>
+    <circle cx="1050" cy="821" r="25" fill="#9d8bff" opacity=".15"/><text x="1050" y="829" text-anchor="middle" class="role" font-size="16">03</text>
+    <text x="1100" y="811" font-size="18">B1229058</text><text x="1100" y="850" font-size="25" font-weight="700">戴佑丞</text>
+    <circle cx="1475" cy="821" r="25" fill="#ffd166" opacity=".16"/><text x="1475" y="829" text-anchor="middle" class="role" font-size="16">04</text>
+    <text x="1525" y="811" font-size="18">B1245015</text><text x="1525" y="850" font-size="25" font-weight="700">黃士維</text>
+  </g>
+
+  <path d="M960 965h220" stroke="#55dcd2" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+  <circle cx="960" cy="965" r="6" fill="#55dcd2"/>
+  <path d="M740 965h220" stroke="#55dcd2" stroke-width="3" stroke-linecap="round" opacity=".65"/>
+</svg>

@@ -3,3 +3,7 @@ __pycache__/
 .DS_Store
 .deps/
 mongoDB_RAG/
+
+# Local packaging runtime; keep it outside Git because it contains large
+# third-party binaries such as torch_cpu.dll.
+.packaging_runtime_llm/

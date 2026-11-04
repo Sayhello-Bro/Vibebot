@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Vibebot 運作流程</title>
+  <desc id="desc">從 Facebook 直播內容、語音辨識、LLM 分析、產生留言到瀏覽器擴充功能發送留言的流程圖。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07162f"/><stop offset="1" stop-color="#102f58"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#173d70"/><stop offset="1" stop-color="#0d274e"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".25"/></filter>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#7fc8ff" stroke-opacity=".06"/></pattern>
+    <style>
+      .zh{font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;fill:#f5f9ff}
+      .sub{font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;fill:#b9d4f5}
+      .step{font-family:Arial,sans-serif;font-size:22px;font-weight:700;fill:#82d7ff}
+      .label{font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;font-size:29px;font-weight:600;fill:#f5f9ff}
+      .detail{font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;font-size:19px;fill:#b9d4f5}
+      .icon{stroke:#83d7ff;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#grid)"/>
+
+  <text x="960" y="120" text-anchor="middle" class="zh" font-size="58" font-weight="700">Vibebot 運作流程</text>
+  <text x="960" y="170" text-anchor="middle" class="sub" font-size="25">將直播內容轉換成即時、自然的互動留言</text>
+
+  <!-- connector line -->
+  <path d="M250 540H1670" stroke="#4d9edb" stroke-width="6" stroke-dasharray="12 18" opacity=".65"/>
+
+  <!-- step 1 -->
+  <g transform="translate(230 540)" filter="url(#shadow)">
+    <rect x="-155" y="-205" width="310" height="410" rx="30" fill="url(#card)" stroke="#3979b5" stroke-width="2"/>
+    <circle cy="-125" r="58" fill="#1877f2"/><text y="-102" text-anchor="middle" font-family="Arial" font-size="70" font-weight="700" fill="white">f</text>
+    <text x="-118" y="-35" class="step">STEP 01</text>
+    <text y="25" text-anchor="middle" class="label">Facebook 直播</text>
+    <text y="72" text-anchor="middle" class="detail">取得直播畫面與聲音</text>
+    <path class="icon" d="M-75 128h150v42H-75zM-48 128l14-18h28l14 18M-45 148l20-13 17 13 16-12 27 21"/>
+  </g>
+
+  <!-- step 2 -->
+  <g transform="translate(595 540)" filter="url(#shadow)">
+    <rect x="-155" y="-205" width="310" height="410" rx="30" fill="url(#card)" stroke="#3979b5" stroke-width="2"/>
+    <circle cy="-125" r="58" fill="#23c7bd" opacity=".25"/>
+    <rect x="-19" y="-158" width="38" height="66" rx="19" class="icon"/><path class="icon" d="M-48-125a48 48 0 0 0 96 0M0-77v30M-23-47h46"/>
+    <text x="-118" y="-35" class="step">STEP 02</text>
+    <text y="25" text-anchor="middle" class="label">語音辨識</text>
+    <text y="72" text-anchor="middle" class="detail">將聲音轉成文字</text>
+    <path class="icon" d="M-72 142h15M-45 125v34M-18 135v15M9 116v53M36 130v25M63 121v43"/>
+  </g>
+
+  <!-- step 3 -->
+  <g transform="translate(960 540)" filter="url(#shadow)">
+    <rect x="-155" y="-205" width="310" height="410" rx="30" fill="url(#card)" stroke="#3979b5" stroke-width="2"/>
+    <circle cy="-125" r="58" fill="#8b7cff" opacity=".3"/>
+    <path d="M-30-135c-16-38 33-62 52-28 37-4 50 45 15 62 6 40-49 47-65 13-38 6-50-45-19-49z" fill="none" stroke="#b5aaff" stroke-width="6"/>
+    <circle cx="-20" cy="-118" r="7" fill="#b5aaff"/><circle cx="5" cy="-137" r="7" fill="#b5aaff"/><circle cx="27" cy="-113" r="7" fill="#b5aaff"/>
+    <path d="M-13-122l18-14M12-132l11 17" stroke="#b5aaff" stroke-width="4"/>
+    <text x="-118" y="-35" class="step">STEP 03</text>
+    <text y="25" text-anchor="middle" class="label">LLM 分析</text>
+    <text y="72" text-anchor="middle" class="detail">理解直播內容與情境</text>
+    <path class="icon" d="M-65 142h130M-65 142v-35M-30 142v-58M5 142v-78M40 142v-48M-78 107l35-18 35 11 35-30 35 14"/>
+  </g>
+
+  <!-- step 4 -->
+  <g transform="translate(1325 540)" filter="url(#shadow)">
+    <rect x="-155" y="-205" width="310" height="410" rx="30" fill="url(#card)" stroke="#3979b5" stroke-width="2"/>
+    <circle cy="-125" r="58" fill="#ffd166" opacity=".25"/>
+    <path d="M-42-153h84v57h-49l-28 23v-23h-7z" class="icon"/>
+    <path d="M-19-125h38M-19-109h28" class="icon"/>
+    <text x="-118" y="-35" class="step">STEP 04</text>
+    <text y="25" text-anchor="middle" class="label">產生留言</text>
+    <text y="72" text-anchor="middle" class="detail">依任務產生互動內容</text>
+    <circle cx="-45" cy="143" r="25" fill="none" stroke="#83d7ff" stroke-width="5"/><path d="M-56 143l8 8 15-18" stroke="#83d7ff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path class="icon" d="M5 128h55v31H5zM17 128v-14h31v14"/>
+  </g>
+
+  <!-- step 5 -->
+  <g transform="translate(1690 540)" filter="url(#shadow)">
+    <rect x="-155" y="-205" width="310" height="410" rx="30" fill="url(#card)" stroke="#3979b5" stroke-width="2"/>
+    <circle cy="-125" r="58" fill="#ff7a9d" opacity=".25"/>
+    <path d="M-45-151h90v61h-55l-35 25v-25h-10z" class="icon"/><circle cx="-17" cy="-120" r="4" fill="#83d7ff"/><circle cx="0" cy="-120" r="4" fill="#83d7ff"/><circle cx="17" cy="-120" r="4" fill="#83d7ff"/>
+    <text x="-118" y="-35" class="step">STEP 05</text>
+    <text y="25" text-anchor="middle" class="label">擴充功能發送</text>
+    <text y="72" text-anchor="middle" class="detail">留言出現在直播聊天室</text>
+    <path class="icon" d="M-55 130h110v40H-55zM-33 130v-23h66v23M-33 151h66"/>
+  </g>
+
+</svg>

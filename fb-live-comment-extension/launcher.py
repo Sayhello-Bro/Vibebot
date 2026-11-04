@@ -895,7 +895,7 @@ def apply_mode_layout():
     set_control_font(hwnd_channel, FONT_BODY)
     set_control_font(hwnd_phrase, FONT_BODY)
     show_control(hwnd_reply_list, False)
-    show_control(hwnd_phrase, reply_filter != "default")
+    show_control(hwnd_phrase, stream_reply_mode != "auto" and reply_filter != "default")
     if editing_profile_name:
         position_profile_name_editor()
     if hwnd_main:
@@ -1795,7 +1795,7 @@ def refresh_reply_list(organize=False):
         stream_reply_mode = stream_data.get("reply_mode", "manual")
         if not mode_selection_dirty:
             pending_reply_mode = stream_reply_mode
-        show_control(hwnd_phrase, True)
+        show_control(hwnd_phrase, stream_reply_mode != "auto")
         data = request_json(f"{DB_API_BASE}/crowd_slogans", method="GET")
         if data.get("status") != "success":
             raise RuntimeError(data.get("error", "無法讀取衝人氣語句"))
@@ -1834,7 +1834,7 @@ def refresh_reply_list(organize=False):
     if not mode_selection_dirty:
         pending_reply_mode = stream_reply_mode
     set_control_enabled(hwnd_phrase, not is_busy)
-    show_control(hwnd_phrase, reply_filter != "default")
+    show_control(hwnd_phrase, stream_reply_mode != "auto" and reply_filter != "default")
     for item in items:
         item["reply_key"] = f"{item.get('source')}:{item.get('id')}"
         item["enabled"] = item["reply_key"] in enabled_keys
@@ -1858,7 +1858,7 @@ def set_stream_reply_mode(mode, stream_id=None):
         return
     stream_reply_mode = mode
     set_control_enabled(hwnd_phrase, not is_busy)
-    show_control(hwnd_phrase, reply_filter != "default")
+    show_control(hwnd_phrase, mode != "auto" and reply_filter != "default")
     set_status({
         "manual": "手動模式：以向量比對從已啟用的現有語句中選擇。",
         "auto": "自動模式：模型會參考三類語句，也可自然生成新語句。",
@@ -2084,6 +2084,9 @@ def draw_checkbox(hdc, area, checked):
 def draw_reply_library(hdc):
     fill_round_rect(hdc, REPLY_LIST_RECT, rgb(24, 32, 43), 8)
     stroke_round_rect(hdc, REPLY_LIST_RECT, rgb(61, 75, 93), 8, 1)
+    if stream_reply_mode == "auto":
+        draw_auto_mascot(hdc, (770, 295, 1090, 615))
+        return
     fill_rect(hdc, (612, 270, 1248, 306), rgb(24, 33, 44))
     draw_text(hdc, "▤  留言語句列表", (628, 273, 930, 302), FONT_TAB, COLOR_TEXT, DT_LEFT | DT_VCENTER | DT_SINGLELINE)
     draw_line(hdc, 612, 305, 1248, 305, rgb(58, 72, 89), 1)
@@ -2205,7 +2208,10 @@ def paint_window(hwnd):
 
         draw_favorite_streamers(hdc)
 
-        if reply_filter == "default":
+        if stream_reply_mode == "auto":
+            draw_text(hdc, "▣  自動回覆", (612, 92, 930, 123), FONT_HEADING, COLOR_TEXT, DT_LEFT | DT_VCENTER | DT_SINGLELINE)
+            draw_text(hdc, "由 LLM 根據直播內容自動產生回覆", (643, 118, 1085, 135), FONT_SMALL, COLOR_MUTED, DT_LEFT | DT_VCENTER | DT_SINGLELINE)
+        elif reply_filter == "default":
             draw_text(hdc, "▣  預設語句（唯讀）", (612, 92, 930, 123), FONT_HEADING, COLOR_TEXT, DT_LEFT | DT_VCENTER | DT_SINGLELINE)
             draw_text(hdc, "可勾選是否提供給手動與自動模式", (643, 118, 1085, 135), FONT_SMALL, COLOR_MUTED, DT_LEFT | DT_VCENTER | DT_SINGLELINE)
         else:
@@ -2254,7 +2260,7 @@ def paint_window(hwnd):
             COLOR_GREEN if mode_selection_dirty or reply_selection_dirty else COLOR_GRAY_BUTTON,
             COLOR_TEXT,
         )
-        if reply_filter != "default":
+        if stream_reply_mode != "auto" and reply_filter != "default":
             draw_button(hdc, DELETE_RECT, "▣  刪除選取", COLOR_DANGER, COLOR_TEXT)
         status_top = max(704 + extra, favorite_card_rect()[3] + 8)
         draw_text(hdc, status_text, (32, status_top, 1248, status_top + 16), FONT_TINY, COLOR_MUTED, DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_END_ELLIPSIS)
@@ -2552,6 +2558,8 @@ def set_reply_enabled(item, enabled):
 
 def reply_list_clicked(x, y):
     global selected_reply_index, editing_reply_id
+    if stream_reply_mode == "auto":
+        return False
     for index, (actual_index, item) in enumerate(visible_reply_entries()):
         if point_in_rect(x, y, reply_row_rect(index)):
             selected_reply_index = actual_index
@@ -2850,13 +2858,13 @@ def wnd_proc(hwnd, msg, wparam, lparam):
         if len(PROFILES) < MAX_ACCOUNTS and point_in_rect(x, y, current_add_account_rect()):
             add_account_profile()
             return 0
-        if reply_filter != "default" and point_in_rect(x, y, current_save_phrase_rect()):
+        if stream_reply_mode != "auto" and reply_filter != "default" and point_in_rect(x, y, current_save_phrase_rect()):
             save_phrase_clicked()
             return 0
         if point_in_rect(x, y, REFRESH_RECT):
             apply_clicked()
             return 0
-        if reply_filter != "default" and point_in_rect(x, y, DELETE_RECT):
+        if stream_reply_mode != "auto" and reply_filter != "default" and point_in_rect(x, y, DELETE_RECT):
             delete_selected_clicked()
             return 0
         if reply_list_clicked(x, y):

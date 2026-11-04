@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Vibebot Facebook 直播自動留言系統</title>
+  <desc id="desc">以直播、語音辨識、AI 分析與留言泡泡圖示拼貼呈現 Vibebot 專題介紹。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07152f"/>
+      <stop offset="0.55" stop-color="#102d58"/>
+      <stop offset="1" stop-color="#07152f"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#173c70" stop-opacity=".92"/>
+      <stop offset="1" stop-color="#0b2146" stop-opacity=".92"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity=".28"/>
+    </filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="dots" width="42" height="42" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#73b9ff" opacity=".12"/></pattern>
+    <style>
+      .zh{font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;fill:#f5f9ff}
+      .muted{font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;fill:#b9d4f5}
+      .label{font-family:"Microsoft JhengHei","Noto Sans TC",sans-serif;font-weight:600;fill:#dff1ff}
+      .line{stroke:#7bc7ff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;fill:none}
+      .soft{fill:#5fc7ff;opacity:.17}
+      .chip{fill:#123668;stroke:#4e9fe5;stroke-width:2}
+    </style>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#dots)"/>
+  <circle cx="160" cy="170" r="190" fill="#1c6bba" opacity=".15" filter="url(#glow)"/>
+  <circle cx="1770" cy="880" r="260" fill="#22c7bd" opacity=".11" filter="url(#glow)"/>
+
+  <!-- floating icon collage -->
+  <g filter="url(#shadow)">
+    <g transform="translate(125 105)"><circle r="72" class="soft"/><path class="line" d="M-28-20h56v48h-56zM-18-20l12-15h24l12 15M-18 28l14-18 13 11 10-9 17 16"/><circle cx="16" cy="-2" r="8" fill="#7bc7ff"/></g>
+    <g transform="translate(370 120)"><circle r="62" fill="#23c7bd" opacity=".2"/><rect x="-20" y="-30" width="40" height="60" rx="20" class="line"/><path class="line" d="M-42 0a42 42 0 0 0 84 0M0 42v22M-18 64h36"/></g>
+    <g transform="translate(650 88)"><circle r="62" fill="#ffd166" opacity=".2"/><path class="line" d="M-38-5h76v46h-76zM-20-5v-25M20-5v-25M-25 17h50M-25 31h30"/></g>
+    <g transform="translate(1720 130)"><circle r="72" fill="#ff7a9d" opacity=".2"/><path class="line" d="M-38-25h76v54h-45l-22 20v-20h-9z"/><circle cx="-18" cy="2" r="4" fill="#7bc7ff"/><circle cx="0" cy="2" r="4" fill="#7bc7ff"/><circle cx="18" cy="2" r="4" fill="#7bc7ff"/></g>
+    <g transform="translate(1810 365)"><circle r="62" fill="#9d8cff" opacity=".25"/><path class="line" d="M0-45l12 27 29 3-22 19 7 29-26-15-26 15 7-29-22-19 29-3z"/></g>
+    <g transform="translate(150 790)"><circle r="70" fill="#ffd166" opacity=".22"/><path class="line" d="M-33-30h66v60h-66zM-19-46h38M-19-15h38M-19 3h28M-19 21h20"/></g>
+    <g transform="translate(410 925)"><circle r="65" fill="#ff7a9d" opacity=".2"/><circle cx="0" cy="-12" r="18" class="line"/><path class="line" d="M-35 38c4-26 66-26 70 0M-48 18c-20-10-31-28-18-44M48 18c20-10 31-28 18-44"/></g>
+    <g transform="translate(1530 920)"><circle r="75" fill="#23c7bd" opacity=".2"/><path class="line" d="M-41-23h82v48h-42l-23 20v-20h-17zM-18-1h36M-18 12h22"/></g>
+    <g transform="translate(1770 720)"><circle r="70" fill="#5fc7ff" opacity=".2"/><path class="line" d="M0-45l10 23 25 3-19 17 6 25-22-13-22 13 6-25-19-17 25-3z"/><path class="line" d="M-47 48h94"/></g>
+  </g>
+
+  <!-- central composition -->
+  <rect x="300" y="225" width="1320" height="630" rx="48" fill="url(#panel)" stroke="#3975ad" stroke-width="2" filter="url(#shadow)"/>
+  <path d="M345 325 C470 245 580 420 710 330 S960 255 1080 340 S1310 405 1575 300" stroke="#6ad9ff" stroke-width="3" fill="none" opacity=".45" stroke-dasharray="8 15"/>
+  <path d="M345 755 C490 835 620 680 760 765 S1030 850 1165 755 S1400 665 1575 760" stroke="#44d7c8" stroke-width="3" fill="none" opacity=".35" stroke-dasharray="8 15"/>
+
+  <g transform="translate(430 320)"><circle r="60" fill="#1877f2"/><text x="0" y="25" text-anchor="middle" font-family="Arial" font-size="75" font-weight="700" fill="white">f</text></g>
+  <text x="510" y="303" class="muted" font-size="24">FACEBOOK LIVE</text>
+  <text x="510" y="352" class="zh" font-size="42" font-weight="600">直播內容</text>
+
+  <g transform="translate(1430 320)"><circle r="60" fill="#23c7bd" opacity=".23"/><rect x="-18" y="-31" width="36" height="62" rx="18" class="line"/><path class="line" d="M-42 0a42 42 0 0 0 84 0M0 42v22M-18 64h36"/></g>
+  <text x="1325" y="425" class="label" font-size="26" text-anchor="middle">語音辨識</text>
+
+  <g transform="translate(960 400)"><circle r="84" fill="#7d6cff" opacity=".22"/><path d="M-28-5c-18-42 38-67 58-29 41-4 55 50 17 69 7 44-55 52-72 14-42 7-56-50-21-54z" fill="none" stroke="#a99cff" stroke-width="7"/><circle cx="-20" cy="8" r="8" fill="#a99cff"/><circle cx="8" cy="-13" r="8" fill="#a99cff"/><circle cx="30" cy="14" r="8" fill="#a99cff"/><path d="M-12 4l16-12M15-7l10 16" stroke="#a99cff" stroke-width="5"/></g>
+  <text x="960" y="525" class="label" font-size="30" text-anchor="middle">Vibebot AI</text>
+
+  <text x="960" y="610" class="zh" font-size="58" font-weight="600" text-anchor="middle">Facebook 直播自動留言系統</text>
+  <text x="960" y="682" class="zh" font-size="78" font-weight="700" text-anchor="middle" fill="#73d9ff">Vibebot</text>
+  <text x="960" y="738" class="muted" font-size="30" text-anchor="middle">協助直播主提升互動效率</text>
+
+  <!-- message bubbles make the sentence feel assembled from icons -->
+  <g transform="translate(480 690)"><rect width="230" height="74" rx="37" class="chip"/><circle cx="40" cy="37" r="19" fill="#23c7bd"/><path d="M31 37l7 7 13-16" fill="none" stroke="#06213f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><text x="72" y="48" class="label" font-size="24">智慧互動</text></g>
+  <g transform="translate(1210 690)"><rect width="230" height="74" rx="37" class="chip"/><circle cx="40" cy="37" r="19" fill="#ffd166"/><path d="M31 30h18M31 39h18M31 48h12" stroke="#06213f" stroke-width="4" stroke-linecap="round"/><text x="72" y="48" class="label" font-size="24">即時留言</text></g>
+
+  <!-- bottom icon-to-idea strip -->
+  <g transform="translate(535 965)"><circle r="22" fill="#5fc7ff"/><path d="M-10 0h20M0-10v20" stroke="#06213f" stroke-width="5" stroke-linecap="round"/></g>
+  <text x="580" y="975" class="muted" font-size="25">語音</text>
+  <path d="M675 965h70" stroke="#6ad9ff" stroke-width="4" marker-end="url(#none)"/>
+  <g transform="translate(800 965)"><circle r="22" fill="#9d8cff"/><path d="M0-14v28M-14 0h28" stroke="#182455" stroke-width="5" stroke-linecap="round"/></g>
+  <text x="845" y="975" class="muted" font-size="25">分析</text>
+  <path d="M940 965h70" stroke="#6ad9ff" stroke-width="4"/>
+  <g transform="translate(1065 965)"><circle r="22" fill="#ff7a9d"/><path d="M-12-5h24v17h-14l-9 7v-7h-1z" fill="none" stroke="#431b42" stroke-width="4"/></g>
+  <text x="1110" y="975" class="muted" font-size="25">留言</text>
+  <path d="M1205 965h70" stroke="#6ad9ff" stroke-width="4"/>
+  <g transform="translate(1330 965)"><circle r="22" fill="#23c7bd"/><path d="M-12 0l8 8 16-18" fill="none" stroke="#063c45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <text x="1375" y="975" class="muted" font-size="25">互動提升</text>
+
+  <text x="960" y="1035" class="muted" font-size="18" text-anchor="middle" opacity=".7">從直播內容到智慧留言，讓每一次互動更即時、更自然</text>
+</svg>

@@ -1,4 +1,4 @@
-# FB 直播自動留言系統使用說明書
+# Vibebot:直播氛圍機器人使用說明書
 
 本說明適用於 Windows 版 `fb-live-comment-extension/dist/FB_Live_Auto_Comment.exe`。系統支援多個 Facebook 帳號參與同一場直播，也支援一個帳號分別處理多場直播。每列直播可獨立開始、暫停、繼續與停止。
 
